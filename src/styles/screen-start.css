@@ -1,6 +1,7 @@
 /* ========== COMPONENTS ========== */
 
 #screen-start {
+  inline-size: 100%;
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
   padding-inline: var(--6);
   padding-block: var(--6);
@@ -26,6 +27,10 @@
   border-radius: var(--3);
 
   box-shadow: var(--shdw-1);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+  }
 }
 
 .c-icon_area {

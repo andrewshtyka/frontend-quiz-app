@@ -377,18 +377,22 @@
         <!-- Switcher -->
         <div class="o-header">
           <label class="o-switcher_area" for="mode-switcher">
-            <svg class="c-icon_switcher" height="16" width="16">
-              <use href="./src/assets/images/icons.svg#icon-sun" />
-            </svg>
-
-            <span class="c-switcher" tabindex="0">
-              <input type="checkbox" id="mode-switcher" />
-              <span class="c-slider"></span>
+            <span class="o-switcher_option">
+              <svg class="c-icon_switcher" height="16" width="16">
+                <use href="./src/assets/images/icons.svg#icon-sun" />
+              </svg>
             </span>
 
-            <svg class="c-icon_switcher" height="16" width="16">
-              <use href="./src/assets/images/icons.svg#icon-moon" />
-            </svg>
+            <div class="c-switcher">
+              <input type="checkbox" id="mode-switcher" />
+              <label for="mode-switcher" tabindex="0"></label>
+            </div>
+
+            <span class="o-switcher_option">
+              <svg class="c-icon_switcher" height="16" width="16">
+                <use href="./src/assets/images/icons.svg#icon-moon" />
+              </svg>
+            </span>
           </label>
         </div>
 
@@ -464,7 +468,7 @@
       <!-- #endregion = 1. START SCREEN -->
 
       <!-- #region = 2. QUIZ SCREEN -->
-      <article id="screen-quiz" class="is-hidden">
+      <article id="screen-quiz" class="is-removed">
         <!-- Header -->
         <div>
           <div>
@@ -580,7 +584,7 @@
       <!-- #endregion = 2. QUIZ SCREEN -->
 
       <!-- #region = 3. RESULT SCREEN -->
-      <article id="screen-result" class="is-hidden">
+      <article id="screen-result" class="is-removed">
         <!-- Header -->
         <div>
           <div>
