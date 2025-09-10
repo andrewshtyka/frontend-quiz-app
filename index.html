@@ -364,5 +364,260 @@
     <!-- Scripts -->
     <script src="./src/main.js" type="module" defer></script>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <!-- #region = 1. START SCREEN -->
+      <article id="screen-start">
+        <!-- Switcher -->
+        <div>
+          <label class="" for="dark-light-mode">
+            <svg height="24" width="24">
+              <use href="" />
+            </svg>
+          </label>
+
+          <label class="">
+            <input type="checkbox" id="dark-light-mode" />
+            <span class=""></span>
+          </label>
+
+          <label class="" for="dark-light-mode">
+            <svg height="24" width="24">
+              <use href="" />
+            </svg>
+          </label>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <div>
+            <h1>Welcome to the <span>Frontend Quiz!</span></h1>
+            <p>Pick a subject to get started.</p>
+          </div>
+          <ul>
+            <li>
+              <button type="button">
+                <span>
+                  <svg height="28" width="28">
+                    <use href="" />
+                  </svg>
+                </span>
+                <span>HTML</span>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <span>
+                  <svg height="28" width="28">
+                    <use href="" />
+                  </svg>
+                </span>
+                <span>CSS</span>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <span>
+                  <svg height="28" width="28">
+                    <use href="" />
+                  </svg>
+                </span>
+                <span>JavaScript</span>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <span>
+                  <svg height="28" width="28">
+                    <use href="" />
+                  </svg>
+                </span>
+                <span>Accessibility</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <!-- #endregion = 1. START SCREEN -->
+
+      <!-- #region = 2. QUIZ SCREEN -->
+      <article id="screen-quiz">
+        <!-- Header -->
+        <div>
+          <div>
+            <span>
+              <svg height="28" width="28">
+                <use href="" />
+              </svg>
+            </span>
+            <h2>Accessibility</h2>
+          </div>
+
+          <!-- / Switcher -->
+          <div>
+            <label class="" for="dark-light-mode">
+              <svg height="24" width="24">
+                <use href="" />
+              </svg>
+            </label>
+
+            <label class="">
+              <input type="checkbox" id="dark-light-mode" />
+              <span class=""></span>
+            </label>
+
+            <label class="" for="dark-light-mode">
+              <svg height="24" width="24">
+                <use href="" />
+              </svg>
+            </label>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <!-- / Question -->
+          <div>
+            <div>
+              <h3>Question 6 of 10</h3>
+              <h4>
+                Which of these color contrast ratios defines the minimum WCAG
+                2.1 Level AA requirement for normal text?
+              </h4>
+            </div>
+            <div id="progress-bar"></div>
+          </div>
+
+          <!-- / Answers -->
+          <ul>
+            <li>
+              <button type="button">
+                <div>
+                  <span>A</span>
+                  4.5 : 1
+                </div>
+                <span id="check-answer">
+                  <svg height="24" width="24">
+                    <use href="" />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <div>
+                  <span>B</span>
+                  3 : 1
+                </div>
+                <span id="check-answer">
+                  <svg height="24" width="24">
+                    <use href="" />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <div>
+                  <span>C</span>
+                  2.5 : 1
+                </div>
+                <span id="check-answer">
+                  <svg height="24" width="24">
+                    <use href="" />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <div>
+                  <span>D</span>
+                  5 : 1
+                </div>
+                <span id="check-answer">
+                  <svg height="24" width="24">
+                    <use href="" />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button">Submit answer</button>
+              <div class="" aria-live="polite" id="error-answer">
+                <svg height="24" width="24">
+                  <use href="" />
+                </svg>
+                Please select an answer
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <!-- #endregion = 2. QUIZ SCREEN -->
+
+      <!-- #region = 3. RESULT SCREEN -->
+      <article id="screen-result">
+        <!-- Header -->
+        <div>
+          <div>
+            <span>
+              <svg height="28" width="28">
+                <use href="" />
+              </svg>
+            </span>
+            <h2>Accessibility</h2>
+          </div>
+
+          <!-- / Switcher -->
+          <div>
+            <label class="" for="dark-light-mode">
+              <svg height="24" width="24">
+                <use href="" />
+              </svg>
+            </label>
+
+            <label class="">
+              <input type="checkbox" id="dark-light-mode" />
+              <span class=""></span>
+            </label>
+
+            <label class="" for="dark-light-mode">
+              <svg height="24" width="24">
+                <use href="" />
+              </svg>
+            </label>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <div>
+            <h1>Welcome to the <span>Frontend Quiz!</span></h1>
+            <p>Pick a subject to get started.</p>
+          </div>
+
+          <div>
+            <div>
+              <div>
+                <span>
+                  <svg height="28" width="28">
+                    <use href="" />
+                  </svg>
+                </span>
+                <h2>Accessibility</h2>
+              </div>
+
+              <div>
+                <h4>8</h4>
+                <p>out of 10</p>
+              </div>
+            </div>
+            <button type="button">Play again</button>
+          </div>
+        </div>
+      </article>
+      <!-- #endregion = 3. RESULT SCREEN -->
+    </main>
+  </body>
 </html>
