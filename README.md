@@ -8,7 +8,7 @@ We provide the data in a local `data.json` file, so use that to populate the con
 
 ## Your users should be able to:
 
-### Logic
+#### Logic
 
 1. Select a quiz subject
 2. Select a single answer from each question from a choice of four
@@ -18,7 +18,7 @@ We provide the data in a local `data.json` file, so use that to populate the con
 6. See a completed state with the score after the final question
 7. Play again to choose another subject
 
-### Layout & Styles
+#### Layout & Styles
 
 1. View the optimal layout for the interface depending on their device's screen size
 2. See hover and focus states for all interactive elements on the page
