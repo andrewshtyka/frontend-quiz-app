@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 frontend-quiz-app-figma
-preview.jpg
+
 
 # Editor directories and files
 .vscode/*
