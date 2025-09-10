@@ -37,6 +37,16 @@
   & input:checked + label::after {
     transform: translateX(var(--3));
   }
+
+  & label:focus-visible {
+    outline-offset: var(--1);
+    outline: var(--0_5) solid var(--color-purple-600);
+    border-radius: var(--4);
+  }
+
+  & label:focus-visible::after {
+    scale: 1.2
+  }
 }
 
 /* .c-slider {
