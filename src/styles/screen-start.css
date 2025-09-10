@@ -1,0 +1,94 @@
+/* ========== COMPONENTS ========== */
+
+#screen-start {
+  max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
+  padding-inline: var(--6);
+  padding-block: var(--6);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--14);
+
+  & .o-header {
+    justify-content: flex-end;
+  }
+}
+
+.c-btn_secondary {
+  background-color: var(--bg-clr-2);
+  inline-size: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--4);
+  border-radius: var(--3);
+
+  box-shadow: var(--shdw-1);
+}
+
+.c-icon_area {
+  display: grid;
+  place-content: center;
+
+  width: var(--10);
+  height: var(--10);
+  line-height: 0;
+  border-radius: var(--1_5);
+}
+
+.c-icon_btn {
+  height: var(--7);
+  width: var(--7);
+}
+
+/* ========== LAYOUT ========== */
+
+.o-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+}
+
+.o-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--10);
+}
+
+.o-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+}
+
+.o-btn_content-left {
+  display: flex;
+  align-items: center;
+  gap: var(--4);
+}
+
+/* ========== UTILITIES ========== */
+
+.u-color_orange-50 {
+  background-color: var(--color-orange-50);
+}
+
+.u-color_green-100 {
+  background-color: var(--color-green-100);
+}
+
+.u-color_blue-50 {
+  background-color: var(--color-blue-50);
+}
+
+.u-color_purple-100 {
+  background-color: var(--color-purple-100);
+}
+
+.u-width_max-30ch {
+  max-inline-size: 30ch;
+}
+
+/* ========== LOGIC ========== */

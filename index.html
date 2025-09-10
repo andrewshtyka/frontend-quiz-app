@@ -14,6 +14,12 @@
       sizes="32x32"
       href="./src/assets/images/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Styles -->
     <style media="all">
@@ -364,75 +370,92 @@
     <!-- Scripts -->
     <script src="./src/main.js" type="module" defer></script>
   </head>
-  <body>
+  <body class="">
     <main>
       <!-- #region = 1. START SCREEN -->
       <article id="screen-start">
         <!-- Switcher -->
-        <div>
-          <label class="" for="dark-light-mode">
-            <svg height="24" width="24">
-              <use href="" />
+        <div class="o-header">
+          <label class="o-switcher_area" for="mode-switcher">
+            <svg class="c-icon_switcher" height="16" width="16">
+              <use href="./src/assets/images/icons.svg#icon-sun" />
             </svg>
-          </label>
 
-          <label class="">
-            <input type="checkbox" id="dark-light-mode" />
-            <span class=""></span>
-          </label>
+            <span class="c-switcher" tabindex="0">
+              <input type="checkbox" id="mode-switcher" />
+              <span class="c-slider"></span>
+            </span>
 
-          <label class="" for="dark-light-mode">
-            <svg height="24" width="24">
-              <use href="" />
+            <svg class="c-icon_switcher" height="16" width="16">
+              <use href="./src/assets/images/icons.svg#icon-moon" />
             </svg>
           </label>
         </div>
 
         <!-- Content -->
-        <div>
-          <div>
-            <h1>Welcome to the <span>Frontend Quiz!</span></h1>
-            <p>Pick a subject to get started.</p>
+        <div class="o-card">
+          <!-- / Heading -->
+          <div class="o-heading">
+            <div class="u-width_max-30ch">
+              <h1 class="f-preset_2">
+                <span class="f-light">Welcome to the </span>Frontend Quiz!
+              </h1>
+            </div>
+            <p class="f-preset_5 f-color_grey-light">
+              Pick a subject to get started.
+            </p>
           </div>
-          <ul>
+
+          <!-- / Buttons -->
+          <ul class="o-list">
             <li>
-              <button type="button">
-                <span>
-                  <svg height="28" width="28">
-                    <use href="" />
-                  </svg>
-                </span>
-                <span>HTML</span>
+              <button class="c-btn_secondary" type="button">
+                <div class="o-btn_content-left">
+                  <span class="c-icon_area u-color_orange-50">
+                    <svg class="c-icon_btn" height="28" width="28">
+                      <use href="./src/assets/images/icons.svg#icon-html" />
+                    </svg>
+                  </span>
+                  <span>HTML</span>
+                </div>
               </button>
             </li>
             <li>
-              <button type="button">
-                <span>
-                  <svg height="28" width="28">
-                    <use href="" />
-                  </svg>
-                </span>
-                <span>CSS</span>
+              <button class="c-btn_secondary" type="button">
+                <div class="o-btn_content-left">
+                  <span class="c-icon_area u-color_green-100">
+                    <svg class="c-icon_btn" height="28" width="28">
+                      <use href="./src/assets/images/icons.svg#icon-css" />
+                    </svg>
+                  </span>
+                  <span>CSS</span>
+                </div>
               </button>
             </li>
             <li>
-              <button type="button">
-                <span>
-                  <svg height="28" width="28">
-                    <use href="" />
-                  </svg>
-                </span>
-                <span>JavaScript</span>
+              <button class="c-btn_secondary" type="button">
+                <div class="o-btn_content-left">
+                  <span class="c-icon_area u-color_blue-50">
+                    <svg class="c-icon_btn" height="28" width="28">
+                      <use href="./src/assets/images/icons.svg#icon-js" />
+                    </svg>
+                  </span>
+                  <span>JavaScript</span>
+                </div>
               </button>
             </li>
             <li>
-              <button type="button">
-                <span>
-                  <svg height="28" width="28">
-                    <use href="" />
-                  </svg>
-                </span>
-                <span>Accessibility</span>
+              <button class="c-btn_secondary" type="button">
+                <div class="o-btn_content-left">
+                  <span class="c-icon_area u-color_purple-100">
+                    <svg class="c-icon_btn" height="28" width="28">
+                      <use
+                        href="./src/assets/images/icons.svg#icon-accessibility"
+                      />
+                    </svg>
+                  </span>
+                  <span>Accessibility</span>
+                </div>
               </button>
             </li>
           </ul>
@@ -441,7 +464,7 @@
       <!-- #endregion = 1. START SCREEN -->
 
       <!-- #region = 2. QUIZ SCREEN -->
-      <article id="screen-quiz">
+      <article id="screen-quiz" class="is-hidden">
         <!-- Header -->
         <div>
           <div>
@@ -557,7 +580,7 @@
       <!-- #endregion = 2. QUIZ SCREEN -->
 
       <!-- #region = 3. RESULT SCREEN -->
-      <article id="screen-result">
+      <article id="screen-result" class="is-hidden">
         <!-- Header -->
         <div>
           <div>

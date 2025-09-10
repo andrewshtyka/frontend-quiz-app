@@ -1,0 +1,66 @@
+/* ========== GOBAL ========== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  text-rendering: optimizeSpeed;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* BG IMAGES - DEFINE */
+  --img-bg_light-mob: url(./assets/images/pattern-background-mobile-light.svg);
+  --img-bg_light-tablet: url(./assets/images/pattern-background-tablet-light.svg);
+  --img-bg_light-desktop: url(./assets/images/pattern-background-desktop-light.svg);
+
+  --img-bg_dark-mob: url(./assets/images/pattern-background-mobile-dark.svg);
+  --img-bg_dark-tablet: url(./assets/images/pattern-background-tablet-dark.svg);
+  --img-bg_dark-desktop: url(./assets/images/pattern-background-desktop-dark.svg);
+
+  /* BG IMAGES - SET */
+  --img_url-mob: var(--img-bg_light-mob);
+  --img_url-tablet: var(--img-bg_light-tablet);
+  --img_url-desktop: var(--img-bg_light-desktop);
+}
+
+body.dark {
+  --img_url-mob: var(--img-bg_dark-mob);
+  --img_url-tablet: var(--img-bg_dark-tablet);
+  --img_url-desktop: var(--img-bg_dark-desktop);
+}
+
+main {
+  min-height: 100svh;
+  background-color: var(--bg-clr-1);
+
+  background-image: var(--img_url-mob);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ========== COMPONENTS ========== */
+
+/* ========== LAYOUT ========== */
+
+/* ========== UTILITIES ========== */
+
+/* ========== LOGIC ========== */
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

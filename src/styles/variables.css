@@ -1,0 +1,91 @@
+:root {
+  /* COLORS */
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-grey-500: hsl(219, 13%, 44%);
+  --color-grey-50: hsl(220, 37%, 97%);
+  --color-blue-950: hsl(214, 24%, 23%);
+  --color-blue-900: hsl(216, 25%, 25%);
+  --color-blue-850: hsl(215, 27%, 32%);
+  --color-blue-500: hsl(223, 100%, 59%);
+  --color-blue-300: hsl(216, 47%, 78%);
+  --color-blue-100: hsl(220, 50%, 95%);
+  --color-blue-50: hsl(225, 100%, 96%);
+  --color-green-500: hsl(151, 68%, 52%);
+  --color-green-100: hsl(151, 88%, 94%);
+  --color-purple-600: hsl(277, 91%, 56%);
+  --color-purple-100: hsl(278, 100%, 95%);
+  --color-orange-400: hsl(22, 100%, 60%);
+  --color-orange-50: hsl(27, 100%, 96%);
+  --color-orange-500: hsl(0, 82%, 63%);
+
+  /* SPACING */
+  --space: calc(1rem / 16);
+  --0: calc(var(--space) * 0);
+  --px: calc(var(--space) * 1);
+  --0_5: calc(var(--space) * 2);
+  --1: calc(var(--space) * 4);
+  --1_5: calc(var(--space) * 6);
+  --2: calc(var(--space) * 8);
+  --2_5: calc(var(--space) * 10);
+  --3: calc(var(--space) * 12);
+  --3_5: calc(var(--space) * 14);
+  --4: calc(var(--space) * 16);
+  --5: calc(var(--space) * 20);
+  --6: calc(var(--space) * 24);
+  --7: calc(var(--space) * 28);
+  --8: calc(var(--space) * 32);
+  --9: calc(var(--space) * 36);
+  --10: calc(var(--space) * 40);
+  --11: calc(var(--space) * 44);
+  --12: calc(var(--space) * 48);
+  --14: calc(var(--space) * 56);
+  --16: calc(var(--space) * 64);
+  --20: calc(var(--space) * 80);
+  --24: calc(var(--space) * 96);
+  --28: calc(var(--space) * 112);
+  --32: calc(var(--space) * 128);
+  --36: calc(var(--space) * 144);
+  --40: calc(var(--space) * 160);
+  --44: calc(var(--space) * 176);
+  --48: calc(var(--space) * 192);
+  --52: calc(var(--space) * 208);
+  --56: calc(var(--space) * 224);
+  --60: calc(var(--space) * 240);
+  --64: calc(var(--space) * 256);
+  --72: calc(var(--space) * 288);
+  --80: calc(var(--space) * 320);
+  --96: calc(var(--space) * 384);
+}
+
+body {
+  /* SHADOW COLOR */
+  --shadow-color-light: hsla(220, 29%, 66%, 0.14);
+  --shadow-color-dark: hsla(216, 25%, 25%, 0.14);
+
+  /* LIGHT THEME - COLORS */
+  --bg-clr-1: var(--color-grey-50);
+  --bg-clr-2: var(--color-white);
+  --bg-clr-3: var(--color-grey-500);
+
+  /* LIGHT THEME - FONT COLORS */
+  --f-clr-1: var(--color-blue-900);
+  --f-clr-2: var(--color-grey-500);
+
+  /* LIGHT THEME - SHADOWS */
+  --shdw-1: 0 var(--4) var(--10) 0 var(--shadow-color-light);
+}
+
+body.dark {
+  /* DARK THEME - COLORS */
+  --bg-clr-1: var(--color-blue-900);
+  --bg-clr-2: var(--color-blue-850);
+  --bg-clr-3: var(--color-white);
+
+  /* DARK THEME - FONT COLORS */
+  --f-clr-1: var(--color-white);
+  --f-clr-2: var(--color-blue-300);
+
+  /* DARK THEME - SHADOWS */
+  --shdw-1: 0 var(--4) var(--10) 0 var(--shadow-color-dark);
+}

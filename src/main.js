@@ -1,3 +1,8 @@
+import "./styles/variables.css";
+import "./styles/fonts.css";
+import "./styles/screen-start.css";
+import "./styles/switcher.css";
+
 /*
 Окремі HTML-сторінки тут не потрібні. Це робиться як одна HTML-сторінка, а екрани (старт, питання, результат) — просто різні блоки в DOM.
 
