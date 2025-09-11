@@ -4,15 +4,11 @@
   inline-size: 100%;
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
   padding-inline: var(--6);
-  padding-block: var(--6);
+  padding-block: var(--8);
 
   display: flex;
   flex-direction: column;
   gap: var(--14);
-
-  & .o-header {
-    justify-content: flex-end;
-  }
 }
 
 .c-btn_secondary {
@@ -31,21 +27,6 @@
   &:focus-visible {
     box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
   }
-}
-
-.c-icon_area {
-  display: grid;
-  place-content: center;
-
-  width: var(--10);
-  height: var(--10);
-  line-height: 0;
-  border-radius: var(--1_5);
-}
-
-.c-icon_btn {
-  height: var(--7);
-  width: var(--7);
 }
 
 /* ========== LAYOUT ========== */

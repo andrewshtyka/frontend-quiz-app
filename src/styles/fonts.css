@@ -48,3 +48,7 @@ body {
 .f-color_grey-light {
   color: var(--f-clr-2);
 }
+
+.f-color_error {
+  color: var(--f-clr-error);
+}

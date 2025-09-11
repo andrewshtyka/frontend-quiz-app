@@ -14,6 +14,7 @@
   --color-green-500: hsl(151, 68%, 52%);
   --color-green-100: hsl(151, 88%, 94%);
   --color-purple-600: hsl(277, 91%, 56%);
+  --color-purple-300: hsl(277, 91%, 78%);
   --color-purple-100: hsl(278, 100%, 95%);
   --color-orange-400: hsl(22, 100%, 60%);
   --color-orange-50: hsl(27, 100%, 96%);
@@ -71,6 +72,7 @@ body {
   /* LIGHT THEME - FONT COLORS */
   --f-clr-1: var(--color-blue-900);
   --f-clr-2: var(--color-grey-500);
+  --f-clr-error: var(--color-orange-500);
 
   /* LIGHT THEME - SHADOWS */
   --shdw-1: 0 var(--4) var(--10) 0 var(--shadow-color-light);
@@ -85,6 +87,7 @@ body.dark {
   /* DARK THEME - FONT COLORS */
   --f-clr-1: var(--color-white);
   --f-clr-2: var(--color-blue-300);
+  --f-clr-error: var(--color-white);
 
   /* DARK THEME - SHADOWS */
   --shdw-1: 0 var(--4) var(--10) 0 var(--shadow-color-dark);

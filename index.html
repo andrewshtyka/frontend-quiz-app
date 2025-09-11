@@ -372,30 +372,41 @@
   </head>
   <body class="">
     <main>
-      <!-- #region = 1. START SCREEN -->
-      <article id="screen-start">
-        <!-- Switcher -->
-        <div class="o-header">
-          <label class="o-switcher_area" for="mode-switcher">
-            <span class="o-switcher_option">
-              <svg class="c-icon_switcher" height="16" width="16">
-                <use href="./src/assets/images/icons.svg#icon-sun" />
-              </svg>
-            </span>
-
-            <span class="c-switcher">
-              <input type="checkbox" id="mode-switcher" />
-              <label for="mode-switcher" tabindex="0"></label>
-            </span>
-
-            <span class="o-switcher_option">
-              <svg class="c-icon_switcher" height="16" width="16">
-                <use href="./src/assets/images/icons.svg#icon-moon" />
-              </svg>
-            </span>
-          </label>
+      <!-- #region = 0. HEADER -->
+      <header class="o-header">
+        <div class="o-header_topic">
+          <span class="c-icon_area u-color_purple-100">
+            <svg class="c-icon_btn" height="28" width="28">
+              <use href="./src/assets/images/icons.svg#icon-accessibility" />
+            </svg>
+          </span>
+          <h2 class="f-preset_4">Accessibility</h2>
         </div>
 
+        <!-- Switcher -->
+        <label class="o-switcher_area" for="mode-switcher">
+          <span class="o-switcher_option">
+            <svg class="c-icon_switcher" height="16" width="16">
+              <use href="./src/assets/images/icons.svg#icon-sun" />
+            </svg>
+          </span>
+
+          <span class="c-switcher">
+            <input type="checkbox" id="mode-switcher" />
+            <label for="mode-switcher" tabindex="0"></label>
+          </span>
+
+          <span class="o-switcher_option">
+            <svg class="c-icon_switcher" height="16" width="16">
+              <use href="./src/assets/images/icons.svg#icon-moon" />
+            </svg>
+          </span>
+        </label>
+      </header>
+      <!-- #endregion = 0. HEADER -->
+
+      <!-- #region = 1. START SCREEN -->
+      <article id="screen-start" class="">
         <!-- Content -->
         <div class="o-card">
           <!-- / Heading -->
@@ -468,118 +479,103 @@
       <!-- #endregion = 1. START SCREEN -->
 
       <!-- #region = 2. QUIZ SCREEN -->
-      <article id="screen-quiz" class="is-removed">
-        <!-- Header -->
-        <div>
-          <div>
-            <span>
-              <svg height="28" width="28">
-                <use href="" />
-              </svg>
-            </span>
-            <h2>Accessibility</h2>
+      <article id="screen-quiz" class="">
+        <!-- Question -->
+        <div class="o-hero">
+          <div class="o-heading_text">
+            <h3 class="f-preset_5 f-color_grey-light">Question 6 of 10</h3>
+            <h4 class="f-preset_3">
+              Which of these color contrast ratios defines the minimum WCAG 2.1
+              Level AA requirement for normal text?
+            </h4>
           </div>
 
-          <!-- / Switcher -->
-          <div>
-            <label class="" for="dark-light-mode">
-              <svg height="24" width="24">
-                <use href="" />
-              </svg>
-            </label>
-
-            <label class="">
-              <input type="checkbox" id="dark-light-mode" />
-              <span class=""></span>
-            </label>
-
-            <label class="" for="dark-light-mode">
-              <svg height="24" width="24">
-                <use href="" />
-              </svg>
-            </label>
+          <!-- / Progress bar -->
+          <div class="c-progress">
+            <div id="progress-bar" class="c-progress_line"></div>
           </div>
         </div>
 
-        <!-- Content -->
-        <div>
-          <!-- / Question -->
-          <div>
-            <div>
-              <h3>Question 6 of 10</h3>
-              <h4>
-                Which of these color contrast ratios defines the minimum WCAG
-                2.1 Level AA requirement for normal text?
-              </h4>
-            </div>
-            <div id="progress-bar"></div>
-          </div>
-
-          <!-- / Answers -->
-          <ul>
-            <li>
-              <button type="button">
-                <div>
-                  <span>A</span>
-                  4.5 : 1
-                </div>
-                <span id="check-answer">
-                  <svg height="24" width="24">
-                    <use href="" />
-                  </svg>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button type="button">
-                <div>
-                  <span>B</span>
-                  3 : 1
-                </div>
-                <span id="check-answer">
-                  <svg height="24" width="24">
-                    <use href="" />
-                  </svg>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button type="button">
-                <div>
-                  <span>C</span>
-                  2.5 : 1
-                </div>
-                <span id="check-answer">
-                  <svg height="24" width="24">
-                    <use href="" />
-                  </svg>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button type="button">
-                <div>
-                  <span>D</span>
-                  5 : 1
-                </div>
-                <span id="check-answer">
-                  <svg height="24" width="24">
-                    <use href="" />
-                  </svg>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button type="button">Submit answer</button>
-              <div class="" aria-live="polite" id="error-answer">
-                <svg height="24" width="24">
-                  <use href="" />
-                </svg>
-                Please select an answer
+        <!-- Answers -->
+        <ul class="o-list">
+          <li>
+            <button class="c-btn_secondary" type="button">
+              <div class="o-btn_content-left">
+                <span
+                  class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light"
+                  >A</span
+                >
+                <span class="f-preset_4">—</span>
               </div>
-            </li>
-          </ul>
-        </div>
+              <span id="check-answer">
+                <svg height="24" width="24">
+                  <use href="./src/assets/images/icons.svg#icon-" />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="c-btn_secondary" type="button">
+              <div class="o-btn_content-left">
+                <span
+                  class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light"
+                  >B</span
+                >
+                <span class="f-preset_4">—</span>
+              </div>
+              <span id="check-answer">
+                <svg height="24" width="24">
+                  <use href="./src/assets/images/icons.svg#icon-" />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="c-btn_secondary" type="button">
+              <div class="o-btn_content-left">
+                <span
+                  class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light"
+                  >C</span
+                >
+                <span class="f-preset_4">—</span>
+              </div>
+              <span id="check-answer">
+                <svg height="24" width="24">
+                  <use href="./src/assets/images/icons.svg#icon-" />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="c-btn_secondary" type="button">
+              <div class="o-btn_content-left">
+                <span
+                  class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light"
+                  >D</span
+                >
+                <span class="f-preset_4">—</span>
+              </div>
+              <span id="check-answer">
+                <svg height="24" width="24">
+                  <use href="./src/assets/images/icons.svg#icon-" />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="c-btn_primary f-preset_4" type="button">
+              Submit answer
+            </button>
+            <div class="o-error_answer" aria-live="polite" id="error-answer">
+              <svg height="32" width="32">
+                <use href="./src/assets/images/icons.svg#icon-error" />
+              </svg>
+              <span class="f-preset_4 f-color_error"
+                >Please select an answer</span
+              >
+            </div>
+          </li>
+        </ul>
       </article>
       <!-- #endregion = 2. QUIZ SCREEN -->
 

@@ -1,0 +1,72 @@
+/* ========== COMPONENTS ========== */
+
+#screen-quiz {
+  inline-size: 100%;
+  max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
+  padding-inline: var(--6);
+  padding-block: var(--8);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--12);
+}
+
+.c-btn_primary {
+  padding-block: var(--5);
+  width: 100%;
+  border-radius: var(--3);
+  background-color: var(--color-purple-600);
+
+  color: var(--color-white);
+
+  &:focus-visible {
+    background-color: var(--color-purple-300);
+  }
+}
+
+.c-progress {
+  height: var(--4);
+  padding: var(--1);
+  border-radius: var(--4);
+  width: 100%;
+  background-color: var(--bg-clr-2);
+}
+
+.c-progress_line {
+  height: 100%;
+  border-radius: var(--4);
+  background-color: var(--color-purple-600);
+
+  width: 60%;
+}
+
+/* ========== LAYOUT ========== */
+
+.o-heading_text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--4);
+}
+
+.o-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--6);
+}
+
+.o-error_answer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--2);
+  padding-block: var(--4);
+  padding-inline-end: var(--1);
+}
+
+/* ========== UTILITIES ========== */
+
+.u-color_grey-light {
+  background-color: var(--bg-clr-1);
+}
+
+/* ========== LOGIC ========== */
