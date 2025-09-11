@@ -49,6 +49,10 @@ body {
   color: var(--f-clr-2);
 }
 
+.f-color_grey-light_unchanged {
+  color: var(--color-grey-500);
+}
+
 .f-color_error {
   color: var(--f-clr-error);
 }

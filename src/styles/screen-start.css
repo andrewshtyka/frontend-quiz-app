@@ -8,7 +8,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: var(--14);
+  gap: var(--10);
 }
 
 .c-btn_secondary {
@@ -35,12 +35,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--4);
-}
-
-.o-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--10);
 }
 
 .o-list {

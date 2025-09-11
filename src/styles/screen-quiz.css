@@ -8,7 +8,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: var(--12);
+  gap: var(--10);
 }
 
 .c-btn_primary {
@@ -66,7 +66,7 @@
 /* ========== UTILITIES ========== */
 
 .u-color_grey-light {
-  background-color: var(--bg-clr-1);
+  background-color: var(--color-grey-50);
 }
 
 /* ========== LOGIC ========== */

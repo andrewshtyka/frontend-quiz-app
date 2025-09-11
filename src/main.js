@@ -3,6 +3,7 @@ import "./styles/fonts.css";
 import "./styles/header.css";
 import "./styles/screen-start.css";
 import "./styles/screen-quiz.css";
+import "./styles/screen-result.css";
 
 /*
 Окремі HTML-сторінки тут не потрібні. Це робиться як одна HTML-сторінка, а екрани (старт, питання, результат) — просто різні блоки в DOM.
