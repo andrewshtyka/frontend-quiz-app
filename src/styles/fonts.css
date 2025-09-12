@@ -28,7 +28,7 @@ body {
 
 .f-preset_4 {
   font-size: calc(var(--4) + var(--0_5));
-  line-height: 100%;
+  line-height: 120%;
   font-weight: 500;
 }
 

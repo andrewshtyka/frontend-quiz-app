@@ -7,8 +7,8 @@
 
   & label {
     display: flex;
-    width: var(--8);
-    height: var(--5);
+    inline-size: var(--8);
+    block-size: var(--5);
 
     position: relative;
   }
@@ -17,8 +17,8 @@
     content: "";
     position: absolute;
 
-    width: var(--8);
-    height: var(--5);
+    inline-size: var(--8);
+    block-size: var(--5);
     border-radius: var(--4);
     background-color: var(--color-purple-600);
   }
@@ -26,8 +26,8 @@
   & label::after {
     content: "";
     position: absolute;
-    width: var(--3);
-    height: var(--3);
+    inline-size: var(--3);
+    block-size: var(--3);
     border-radius: 50%;
     background-color: var(--color-white);
     top: var(--1);
@@ -57,15 +57,19 @@
   display: grid;
   place-content: center;
 
-  width: var(--10);
-  height: var(--10);
+  inline-size: var(--10);
+  min-inline-size: var(--10);
+
+  block-size: var(--10);
+  min-block-size: var(--10);
+
   line-height: 0;
   border-radius: var(--1_5);
 }
 
 .c-icon_btn {
-  height: var(--7);
-  width: var(--7);
+  inline-size: var(--7);
+  block-size: var(--7);
 }
 
 /* ========== LAYOUT ========== */

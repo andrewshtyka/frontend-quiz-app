@@ -13,7 +13,7 @@
 
 .c-btn_primary {
   padding-block: var(--5);
-  width: 100%;
+  inline-size: 100%;
   border-radius: var(--3);
   background-color: var(--color-purple-600);
 
@@ -25,19 +25,19 @@
 }
 
 .c-progress {
-  height: var(--4);
+  block-size: var(--4);
   padding: var(--1);
   border-radius: var(--4);
-  width: 100%;
+  inline-size: 100%;
   background-color: var(--bg-clr-2);
 }
 
 .c-progress_line {
-  height: 100%;
+  block-size: 100%;
   border-radius: var(--4);
   background-color: var(--color-purple-600);
 
-  width: 60%;
+  inline-size: 60%;
 }
 
 .c-radio {
