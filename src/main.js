@@ -11,7 +11,7 @@ import * as Mode from "./scripts/dark-light-mode";
 
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
-    Mode.toggleMode();
+    Mode.toggleMode(); // dark-light mode switcher
   });
 });
 

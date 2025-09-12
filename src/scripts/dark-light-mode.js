@@ -1,12 +1,33 @@
 export function toggleMode() {
-  const bodyEl = document.querySelector("body");
-  const switcherEl = document.getElementById("mode-switcher");
+  const inputEl = document.getElementById("mode-switcher");
+  const labelEl = document.querySelector("label[for=mode-switcher]");
 
-  switcherEl.addEventListener("change", () => {
-    if (switcherEl.checked) {
-      bodyEl.classList.add("dark");
-    } else {
-      bodyEl.classList.remove("dark");
+  // toggle on Click
+  labelEl.addEventListener("click", (e) => {
+    applyMode(inputEl, e);
+  });
+
+  // toggle on Spacebar or Enter
+  labelEl.addEventListener("keydown", (e) => {
+    if (e.key === " " || e.key === "Enter") {
+      applyMode(inputEl, e);
     }
   });
+}
+
+// add .dark to body
+function changeCurrentMode(state) {
+  if (state) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+}
+
+// toggle 'change' on checkbox
+function applyMode(input, event) {
+  event.preventDefault();
+  input.checked = !input.checked;
+  input.dispatchEvent(new Event("change"));
+  changeCurrentMode(input.checked);
 }
