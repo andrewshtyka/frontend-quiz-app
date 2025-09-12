@@ -40,6 +40,33 @@
   width: 60%;
 }
 
+.c-radio {
+  display: flex;
+  box-shadow: var(--shdw-1);
+
+  & input {
+    display: none;
+  }
+
+  & label {
+    cursor: pointer;
+    background-color: var(--bg-clr-2);
+    inline-size: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(--4);
+    border-radius: var(--3);
+  }
+
+  & label:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+  }
+}
+
 /* ========== LAYOUT ========== */
 
 .o-heading_text {
