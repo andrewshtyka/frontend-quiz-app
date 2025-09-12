@@ -8,10 +8,24 @@ import "./styles/screen-result.css";
 
 // JS
 import * as Mode from "./scripts/dark-light-mode";
+import * as Populate from "./scripts/populate-data";
 
+// VARIABLES
+const btnsQuizList = document
+  .getElementById("btns-quiz")
+  .querySelectorAll("button");
+
+// FUNCTIONS
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
-    Mode.toggleMode(); // dark-light mode switcher
+    // dark-light mode switcher
+    Mode.toggleMode();
+
+    // choose topic
+    btnsQuizList.forEach((btn) => {
+      btn.addEventListener("click", Populate.handleTopicSelect);
+      btn.addEventListener("keydown", Populate.handleTopicSelect);
+    });
   });
 });
 

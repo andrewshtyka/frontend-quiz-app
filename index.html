@@ -374,13 +374,13 @@
     <main>
       <!-- #region = 0. HEADER -->
       <header class="o-header">
-        <div class="o-header_topic">
-          <span class="c-icon_area u-color_purple-100">
+        <div id="header" class="o-header_topic">
+          <span class="c-icon_area">
             <svg class="c-icon_btn" height="28" width="28">
-              <use href="./src/assets/images/icons.svg#icon-accessibility" />
+              <use href="" />
             </svg>
           </span>
-          <h2 class="f-preset_4">Accessibility</h2>
+          <h2 class="f-preset_4"></h2>
         </div>
 
         <!-- Switcher -->
@@ -420,55 +420,63 @@
         </div>
 
         <!-- Buttons -->
-        <ul class="o-list">
+        <ul class="o-list" id="btns-quiz">
           <li>
-            <button class="c-btn_secondary" type="button">
-              <div class="o-btn_content-left">
-                <span class="c-icon_area u-color_orange-50">
-                  <svg class="c-icon_btn" height="28" width="28">
-                    <use href="./src/assets/images/icons.svg#icon-html" />
-                  </svg>
-                </span>
-                <span>HTML</span>
-              </div>
+            <button
+              id="quiz-html"
+              class="c-btn_secondary f-preset_4"
+              type="button"
+            >
+              <span class="c-icon_area u-color_orange-50">
+                <svg class="c-icon_btn" height="28" width="28">
+                  <use href="./src/assets/images/icons.svg#icon-html" />
+                </svg>
+              </span>
+              HTML
             </button>
           </li>
           <li>
-            <button class="c-btn_secondary" type="button">
-              <div class="o-btn_content-left">
-                <span class="c-icon_area u-color_green-100">
-                  <svg class="c-icon_btn" height="28" width="28">
-                    <use href="./src/assets/images/icons.svg#icon-css" />
-                  </svg>
-                </span>
-                <span>CSS</span>
-              </div>
+            <button
+              id="quiz-css"
+              class="c-btn_secondary f-preset_4"
+              type="button"
+            >
+              <span class="c-icon_area u-color_green-100">
+                <svg class="c-icon_btn" height="28" width="28">
+                  <use href="./src/assets/images/icons.svg#icon-css" />
+                </svg>
+              </span>
+              CSS
             </button>
           </li>
           <li>
-            <button class="c-btn_secondary" type="button">
-              <div class="o-btn_content-left">
-                <span class="c-icon_area u-color_blue-50">
-                  <svg class="c-icon_btn" height="28" width="28">
-                    <use href="./src/assets/images/icons.svg#icon-js" />
-                  </svg>
-                </span>
-                <span>JavaScript</span>
-              </div>
+            <button
+              id="quiz-js"
+              class="c-btn_secondary f-preset_4"
+              type="button"
+            >
+              <span class="c-icon_area u-color_blue-50">
+                <svg class="c-icon_btn" height="28" width="28">
+                  <use href="./src/assets/images/icons.svg#icon-js" />
+                </svg>
+              </span>
+              JavaScript
             </button>
           </li>
           <li>
-            <button class="c-btn_secondary" type="button">
-              <div class="o-btn_content-left">
-                <span class="c-icon_area u-color_purple-100">
-                  <svg class="c-icon_btn" height="28" width="28">
-                    <use
-                      href="./src/assets/images/icons.svg#icon-accessibility"
-                    />
-                  </svg>
-                </span>
-                <span>Accessibility</span>
-              </div>
+            <button
+              id="quiz-access"
+              class="c-btn_secondary f-preset_4"
+              type="button"
+            >
+              <span class="c-icon_area u-color_purple-100">
+                <svg class="c-icon_btn" height="28" width="28">
+                  <use
+                    href="./src/assets/images/icons.svg#icon-accessibility"
+                  />
+                </svg>
+              </span>
+              Accessibility
             </button>
           </li>
         </ul>
