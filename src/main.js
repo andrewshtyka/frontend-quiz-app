@@ -6,15 +6,52 @@ import "./styles/screen-start.css";
 import "./styles/screen-quiz.css";
 import "./styles/screen-result.css";
 
+// ================================================================================
+//
 // JS
 import * as Mode from "./scripts/dark-light-mode";
 import * as Populate from "./scripts/populate-data";
+import * as ShowHide from "./scripts/show-hide-screen";
+import * as Result from "./scripts/result";
+import * as Progress from "./scripts/progress-bar";
 
+// ================================================================================
+//
 // VARIABLES
 const btnsQuizList = document
   .getElementById("btns-quiz")
   .querySelectorAll("button");
 
+const btnRestart = document.getElementById("button-restart");
+const screenStart = document.getElementById("screen-start");
+const screenResult = document.getElementById("screen-result");
+
+const questionNumber = document
+  .getElementById("screen-quiz")
+  .querySelector("[data-number]");
+
+const questionText = document
+  .getElementById("screen-quiz")
+  .querySelector("[data-question]");
+
+const optionA = document
+  .querySelector("[for='option-a']")
+  .querySelector("[data-answer]");
+
+const optionB = document
+  .querySelector("[for='option-b']")
+  .querySelector("[data-answer]");
+
+const optionC = document
+  .querySelector("[for='option-c']")
+  .querySelector("[data-answer]");
+
+const optionD = document
+  .querySelector("[for='option-d']")
+  .querySelector("[data-answer]");
+
+// ================================================================================
+//
 // FUNCTIONS
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
@@ -26,8 +63,30 @@ window.addEventListener("load", () => {
       btn.addEventListener("click", Populate.handleTopicSelect);
       btn.addEventListener("keydown", Populate.handleTopicSelect);
     });
+
+    // restart
+    btnRestart.addEventListener("click", () => {
+      resetAll();
+      // ShowHide.showOrHideScreen(screenResult, screenStart);
+    });
   });
 });
+
+// reset all data (for clean restart)
+function resetAll() {
+  Result.updateScore(0, 0);
+
+  questionNumber.textContent = "";
+  Progress.progressBar(0);
+  questionText.textContent = "";
+  optionA.textContent = "";
+  optionB.textContent = "";
+  optionC.textContent = "";
+  optionD.textContent = "";
+
+  ShowHide.showOrHideScreen(screenResult, screenStart);
+  ShowHide.hideHeader();
+}
 
 /*
 Окремі HTML-сторінки тут не потрібні. Це робиться як одна HTML-сторінка, а екрани (старт, питання, результат) — просто різні блоки в DOM.

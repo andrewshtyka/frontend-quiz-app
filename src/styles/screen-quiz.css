@@ -33,11 +33,10 @@
 }
 
 .c-progress_line {
+  inline-size: 0;
   block-size: 100%;
   border-radius: var(--4);
   background-color: var(--color-purple-600);
-
-  inline-size: 60%;
 }
 
 .c-radio {

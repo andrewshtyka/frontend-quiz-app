@@ -384,24 +384,24 @@
         </div>
 
         <!-- Switcher -->
-        <label class="o-switcher_area" for="mode-switcher">
-          <span class="o-switcher_option">
-            <svg class="c-icon_switcher" height="16" width="16">
-              <use href="./src/assets/images/icons.svg#icon-sun" />
-            </svg>
-          </span>
-
-          <span class="c-switcher">
-            <input type="checkbox" id="mode-switcher" />
-            <label for="mode-switcher" tabindex="0"></label>
-          </span>
-
-          <span class="o-switcher_option">
-            <svg class="c-icon_switcher" height="16" width="16">
-              <use href="./src/assets/images/icons.svg#icon-moon" />
-            </svg>
-          </span>
-        </label>
+        <div class="o-switcher">
+          <label class="o-switcher_area" for="mode-switcher">
+            <span class="o-switcher_option">
+              <svg class="c-icon_switcher" height="16" width="16">
+                <use href="./src/assets/images/icons.svg#icon-sun" />
+              </svg>
+            </span>
+            <span class="c-switcher">
+              <input type="checkbox" id="mode-switcher" />
+              <label for="mode-switcher" tabindex="0"></label>
+            </span>
+            <span class="o-switcher_option">
+              <svg class="c-icon_switcher" height="16" width="16">
+                <use href="./src/assets/images/icons.svg#icon-moon" />
+              </svg>
+            </span>
+          </label>
+        </div>
       </header>
       <!-- #endregion = 0. HEADER -->
 
@@ -484,7 +484,7 @@
       <!-- #endregion = 1. START SCREEN -->
 
       <!-- #region = 2. QUIZ SCREEN -->
-      <article id="screen-quiz" class="">
+      <article id="screen-quiz" class="is-removed">
         <!-- Question -->
         <div class="o-hero">
           <div class="o-heading_text">
@@ -621,7 +621,11 @@
             </span>
           </li>
           <li>
-            <button class="c-btn_primary f-preset_4" type="button">
+            <button
+              id="button-submit"
+              class="c-btn_primary f-preset_4"
+              type="button"
+            >
               Submit answer
             </button>
             <div
@@ -642,7 +646,7 @@
       <!-- #endregion = 2. QUIZ SCREEN -->
 
       <!-- #region = 3. RESULT SCREEN -->
-      <article id="screen-result" class="">
+      <article id="screen-result" class="is-removed">
         <div class="u-width_max-30ch">
           <h1 class="f-preset_2">
             <span class="f-light">Quiz completed</span>
@@ -652,11 +656,11 @@
 
         <div class="o-content_result">
           <div class="o-result_card">
-            <div class="o-header_topic">
+            <div id="result-text" class="o-header_topic">
               <span class="c-icon_area u-color_purple-100">
                 <svg class="c-icon_btn" height="28" width="28">
                   <use
-                    href="./src/assets/images/icons.svg#icon-accessibility"
+                    href="./src/assets/images/icons.svg#icon-accessibility" data-result-icon
                   />
                 </svg>
               </span>
@@ -664,11 +668,17 @@
             </div>
 
             <div class="o-result_text">
-              <h4 class="f-preset_1">8</h4>
-              <p class="f-preset_4 f-color_grey-light">out of 10</p>
+              <h4 class="f-preset_1" data-score>-</h4>
+              <p class="f-preset_4 f-color_grey-light" data-q-amount>
+                out of 10
+              </p>
             </div>
           </div>
-          <button class="c-btn_primary f-preset_4" type="button">
+          <button
+            id="button-restart"
+            class="c-btn_primary f-preset_4"
+            type="button"
+          >
             Play again
           </button>
         </div>
