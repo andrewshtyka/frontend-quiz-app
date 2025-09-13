@@ -1,117 +1,200 @@
-// JS
 import * as Header from "./header";
 import * as Progress from "./progress-bar";
 import * as ShowHide from "./show-hide-screen";
 import * as Result from "./result";
+import * as Radio from "./radio";
+import * as Validate from "./validate";
 
+// ================================================================================
+//
 // VARIABLES
-const questionNumber = document
-  .getElementById("screen-quiz")
-  .querySelector("[data-number]");
-
-const questionText = document
-  .getElementById("screen-quiz")
-  .querySelector("[data-question]");
-
-const optionA = document
-  .querySelector("[for='option-a']")
-  .querySelector("[data-answer]");
-
-const optionB = document
-  .querySelector("[for='option-b']")
-  .querySelector("[data-answer]");
-
-const optionC = document
-  .querySelector("[for='option-c']")
-  .querySelector("[data-answer]");
-
-const optionD = document
-  .querySelector("[for='option-d']")
-  .querySelector("[data-answer]");
-
+const errorMessage = document.getElementById("error-answer");
+const questionNumber = document.querySelector("#screen-quiz [data-number]");
+const questionText = document.querySelector("#screen-quiz [data-question]");
+const optionA = document.querySelector("[for='option-a'] [data-answer]");
+const optionB = document.querySelector("[for='option-b'] [data-answer]");
+const optionC = document.querySelector("[for='option-c'] [data-answer]");
+const optionD = document.querySelector("[for='option-d'] [data-answer]");
 const buttonSubmit = document.getElementById("button-submit");
-
 const screenStart = document.getElementById("screen-start");
 const screenQuiz = document.getElementById("screen-quiz");
 const screenResult = document.getElementById("screen-result");
 
-// FUNCTIONS
+const radios = document.querySelectorAll(
+  'input[type="radio"][name="option-answer"]'
+);
+const labels = document.querySelectorAll("#radios label[for]");
 
-// get info about which topic was selected
+// ================================================================================
+//
+// STATE
+let userAnswer = null;
+let isChecked = false;
+let userScore = 0;
+let isCorrect = 0;
+let currentQ = 0;
+let currentData = null;
+let amountQuestions = 0;
+let currentRadio = null;
+
+// ================================================================================
+//
+// RADIOS
+labels.forEach((label) => {
+  label.addEventListener("click", (e) => {
+    e.preventDefault();
+    currentRadio = e.currentTarget;
+    isChecked = Radio.radioCheck(label, radios);
+    userAnswer = label.querySelector("[data-answer]").textContent;
+    errorMessage.classList.add("is-hidden");
+  });
+
+  label.addEventListener("keydown", (e) => {
+    if (e.code === "Enter" || e.code === "Space") {
+      e.preventDefault();
+      currentRadio = e.currentTarget;
+      isChecked = Radio.radioCheck(label, radios);
+      userAnswer = label.querySelector("[data-answer]").textContent;
+      errorMessage.classList.add("is-hidden");
+    }
+  });
+});
+
+// ================================================================================
+//
+// SUBMIT
+let isSubmitted = false;
+buttonSubmit.addEventListener("click", () => {
+  if (!isSubmitted) {
+    submitCheck(isChecked);
+  } else {
+    nextQuestion();
+  }
+});
+
+// submit button logic
+function submitCheck(status) {
+  if (!status) {
+    errorMessage.classList.remove("is-hidden");
+    return;
+  }
+
+  isSubmitted = true;
+  if (amountQuestions - currentQ === 1) {
+    buttonSubmit.textContent = "Show Result";
+  } else {
+    buttonSubmit.textContent = "Next Question";
+  }
+
+  isCorrect = Validate.validateAnswer(
+    userAnswer,
+    currentData.questions[currentQ].answer,
+    currentRadio,
+    labels
+  );
+  userScore += isCorrect;
+  Result.updateScore(userScore, amountQuestions);
+}
+
+// next question button logic
+function nextQuestion() {
+  currentQ++;
+
+  Validate.removeValidationStyles(labels);
+  buttonSubmit.blur();
+
+  if (currentQ < amountQuestions) {
+    updateData(currentQ);
+    Radio.resetRadios(radios);
+    userAnswer = null;
+    isChecked = false;
+    isSubmitted = false;
+    buttonSubmit.textContent = "Submit Answer";
+  } else {
+    ShowHide.showOrHideScreen(screenQuiz, screenResult);
+    Radio.resetRadios(radios);
+    currentQ = 0;
+    userAnswer = null;
+    isChecked = false;
+    isSubmitted = false;
+    buttonSubmit.textContent = "Submit Answer";
+  }
+}
+
+// ================================================================================
+//
+// TOPIC SELECT
 export function handleTopicSelect(e) {
   const isInput =
-    e.code === "Enter" || e.code === "Space" || e.type === "click";
+    e.type === "click" || e.code === "Enter" || e.code === "Space";
+  if (!isInput) return;
 
-  if (isInput) {
-    transformData(e.target.id, e.target.textContent.trim());
-    ShowHide.showOrHideScreen(screenStart, screenQuiz);
-    ShowHide.showHeader();
-  }
+  const topicID = e.target.id;
+  const topicName = e.target.textContent.trim();
+  loadTopic(topicID, topicName);
 }
 
-// get data from JSON
-async function getData() {
-  const request = new Request("/data.json");
-
-  try {
-    const response = await fetch(request);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error("Fetch error:", error);
-  }
-}
-
-// use data to change header and populate it in question / answers
-async function transformData(topicID, topicName) {
+// ================================================================================
+//
+// LOAD TOPIC
+async function loadTopic(topicID, topicName) {
   const dataArray = await getData();
   if (!dataArray) return;
 
-  dataArray.quizzes.forEach((el) => {
-    if (el.title === topicName) {
-      Header.changeTopicIcon(el.icon, el);
-      populateData(el, el.questions.length);
-    }
-  });
+  const quiz = dataArray.quizzes.find((q) => q.title === topicName);
+  if (!quiz) return;
+
+  currentData = quiz;
+  amountQuestions = quiz.questions.length;
+  userScore = 0;
+  currentQ = 0;
+
+  Header.changeTopicIcon(quiz.icon, quiz);
+  updateData(currentQ);
+
+  ShowHide.showOrHideScreen(screenStart, screenQuiz);
+  ShowHide.showHeader();
 }
 
-// populate data in question / answers
-function populateData(data, amountQuestions) {
-  let currentQ = 0;
-  updateData(currentQ, data);
+// ================================================================================
+//
+// UPDATE QUESTION
+function updateData(index) {
+  const q = currentData.questions[index];
 
-  buttonSubmit.addEventListener("click", () => {
-    currentQ++;
-    Result.updateScore(0, amountQuestions);
+  questionNumber.textContent = `Question ${index + 1} of ${amountQuestions}`;
+  Progress.progressBar(index);
+  questionText.textContent = q.question;
+  optionA.textContent = q.options[0];
+  optionB.textContent = q.options[1];
+  optionC.textContent = q.options[2];
+  optionD.textContent = q.options[3];
 
-    if (currentQ < amountQuestions) {
-      updateData(currentQ, data);
-    } else {
-      ShowHide.showOrHideScreen(screenQuiz, screenResult);
-      currentQ = 0;
-    }
-  });
-
-  // console.log(questionsArray[currentQ].options);
-  // console.log(questionsArray[currentQ].answer);
-  // console.log(questionsArray[currentQ]);
+  isChecked = false;
 }
 
-// update questions after submit
-function updateData(currentQ, data) {
-  const amountQuestions = data.questions.length;
-  const questionsArray = data.questions;
+// ================================================================================
+//
+// FETCH DATA
+async function getData() {
+  try {
+    const response = await fetch("/data.json");
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    return await response.json();
+  } catch (err) {
+    console.error("Fetch error:", err);
+  }
+}
 
-  questionNumber.textContent = `Question ${currentQ + 1} of ${amountQuestions}`;
-  Progress.progressBar(currentQ);
-  questionText.textContent = questionsArray[currentQ].question;
-  optionA.textContent = questionsArray[currentQ].options[0];
-  optionB.textContent = questionsArray[currentQ].options[1];
-  optionC.textContent = questionsArray[currentQ].options[2];
-  optionD.textContent = questionsArray[currentQ].options[3];
+// ================================================================================
+//
+// RESET QUIZ STATE
+export function resetQuiz() {
+  userAnswer = null;
+  isChecked = false;
+  userScore = 0;
+  currentQ = 0;
+  errorMessage.classList.add("is-hidden");
+  Radio.resetRadios(radios);
+  currentData = null;
 }

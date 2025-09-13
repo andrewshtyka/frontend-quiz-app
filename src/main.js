@@ -65,10 +65,7 @@ window.addEventListener("load", () => {
     });
 
     // restart
-    btnRestart.addEventListener("click", () => {
-      resetAll();
-      // ShowHide.showOrHideScreen(screenResult, screenStart);
-    });
+    btnRestart.addEventListener("click", resetAll);
   });
 });
 
@@ -86,6 +83,8 @@ function resetAll() {
 
   ShowHide.showOrHideScreen(screenResult, screenStart);
   ShowHide.hideHeader();
+
+  Populate.resetQuiz();
 }
 
 /*

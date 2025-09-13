@@ -499,7 +499,7 @@
         </div>
 
         <!-- Answers -->
-        <ul class="o-list">
+        <ul class="o-list" id="radios">
           <li>
             <span class="c-radio">
               <input
@@ -517,12 +517,12 @@
                   >
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
-                <span id="icon-answer-correct" class="is-hidden">
+                <span class="is-hidden" data-correct>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
-                <span id="icon-answer-incorrect" class="is-hidden">
+                <span class="is-hidden" data-incorrect>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
@@ -547,12 +547,12 @@
                   >
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
-                <span id="icon-answer-correct" class="is-hidden">
+                <span class="is-hidden" data-correct>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
-                <span id="icon-answer-incorrect" class="is-hidden">
+                <span class="is-hidden" data-incorrect>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
@@ -577,12 +577,12 @@
                   >
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
-                <span id="icon-answer-correct" class="is-hidden">
+                <span class="is-hidden" data-correct>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
-                <span id="icon-answer-incorrect" class="is-hidden">
+                <span class="is-hidden" data-incorrect>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
@@ -607,12 +607,12 @@
                   >
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
-                <span id="icon-answer-correct" class="is-hidden">
+                <span class="is-hidden" data-correct>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
-                <span id="icon-answer-incorrect" class="is-hidden">
+                <span class="is-hidden" data-incorrect>
                   <svg height="24" width="24">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
@@ -626,7 +626,7 @@
               class="c-btn_primary f-preset_4"
               type="button"
             >
-              Submit answer
+              Submit Answer
             </button>
             <div
               class="o-error_answer is-hidden"
@@ -660,7 +660,8 @@
               <span class="c-icon_area u-color_purple-100">
                 <svg class="c-icon_btn" height="28" width="28">
                   <use
-                    href="./src/assets/images/icons.svg#icon-accessibility" data-result-icon
+                    href="./src/assets/images/icons.svg#icon-accessibility"
+                    data-result-icon
                   />
                 </svg>
               </span>

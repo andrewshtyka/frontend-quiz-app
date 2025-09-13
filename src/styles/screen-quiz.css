@@ -96,3 +96,21 @@
 }
 
 /* ========== LOGIC ========== */
+
+.is-correct {
+  box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-green-500);
+
+  & .c-icon_area {
+    background-color: var(--color-green-500);
+    color: var(--color-white);
+  }
+}
+
+.is-incorrect {
+  box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-orange-500);
+
+  & .c-icon_area {
+    background-color: var(--color-orange-500);
+    color: var(--color-white);
+  }
+}
