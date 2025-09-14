@@ -31,7 +31,7 @@
   gap: var(--4);
 
   padding: var(--4);
-  border-radius: var(--3);
+  border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
 
   box-shadow: var(--shdw-1);
 
@@ -108,11 +108,12 @@
   max-inline-size: 30ch;
 
   @media (width >= 48rem) {
-    max-inline-size: 48ch;
+    max-inline-size: 40ch;
   }
 
   @media (width >= 64rem) {
-    flex: 4;
+    max-inline-size: 48ch;
+    flex: 5;
   }
 }
 

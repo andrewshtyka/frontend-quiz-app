@@ -50,20 +50,20 @@ main {
   background-repeat: no-repeat;
   background-size: contain;
 
-  padding-inline: var(--6);
+  padding-inline: clamp(var(--6), calc(var(--2) + 5vw), var(--16));
 
   @media (width >= 48rem) {
     background-image: var(--img_url-tablet);
     background-size: auto;
 
-    padding-inline: var(--16);
+    padding-inline: clamp(var(--16), calc(var(--6) + 6vw), var(--24));
   }
 
   @media (width >= 64rem) {
     background-image: var(--img_url-desktop);
     background-size: cover;
 
-    padding-block-end: var(--20);
+    padding-inline: var(--16);
     background-position: center;
   }
 }

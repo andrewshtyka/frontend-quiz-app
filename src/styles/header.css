@@ -54,8 +54,7 @@
     transform: translateX(var(--3));
 
     @media (width >= 48rem) {
-    transform: translateX(var(--5));
-      
+      transform: translateX(var(--5));
     }
   }
 
@@ -90,7 +89,7 @@
   min-block-size: var(--10);
 
   line-height: 0;
-  border-radius: var(--1_5);
+  border-radius: clamp(var(--1_5), calc(var(--1) + 0.75vw), var(--3));
 
   @media (width >= 48rem) {
     inline-size: var(--14);
@@ -122,13 +121,12 @@
 
   inline-size: 100%;
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
-  min-block-size: calc(var(--20) - var(--2));
 
-  padding-block: var(--4);
+  padding-block: clamp(var(--4), calc(var(--2) + 2vw), var(--8));
 
   @media (width >= 64rem) {
     padding-block: var(--20);
-    min-block-size: var(--20);
+    padding-block-start: clamp(var(--4), calc(var(--2) + 5vw), var(--20));
   }
 }
 

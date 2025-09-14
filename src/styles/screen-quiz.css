@@ -21,7 +21,7 @@
 .c-btn_primary {
   padding-block: var(--5);
   inline-size: 100%;
-  border-radius: var(--3);
+  border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
   background-color: var(--color-purple-600);
 
   color: var(--color-white);
@@ -54,7 +54,7 @@
 .c-radio {
   display: flex;
   box-shadow: var(--shdw-1);
-  border-radius: var(--3);
+  border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
 
   @media (width >= 48rem) {
     border-radius: var(--6);
@@ -74,7 +74,7 @@
     justify-content: space-between;
 
     padding: var(--4);
-    border-radius: var(--3);
+    border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
 
     @media (width >= 48rem) {
       border-radius: var(--6);
@@ -114,8 +114,6 @@
 
   @media (width >= 64rem) {
     flex: 4;
-    /* gap: 0; */
-    /* block-size: 100%; */
   }
 }
 
@@ -131,6 +129,14 @@
 .o-error_wrapper {
   @media (width >= 64rem) {
     min-block-size: calc(var(--20) - var(--2));
+  }
+}
+
+#screen-quiz .o-list .o-btn_content-left {
+  max-inline-size: calc(100% - (var(--8) + var(--4) * 2));
+
+  @media (width >= 48rem) {
+    max-inline-size: calc(100% - (var(--10) + var(--4) * 2));
   }
 }
 
