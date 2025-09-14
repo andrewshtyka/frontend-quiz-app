@@ -628,18 +628,20 @@
             >
               Submit Answer
             </button>
-            <div
-              class="o-error_answer is-hidden"
-              aria-live="polite"
-              id="error-answer"
-              data-incorrect
-            >
-              <svg height="32" width="32">
-                <use href="./src/assets/images/icons.svg#icon-incorrect" />
-              </svg>
-              <span class="f-preset_4 f-color_error"
-                >Please select an answer</span
+            <div class="o-error_wrapper">
+              <div
+                class="o-error_answer is-hidden"
+                aria-live="polite"
+                id="error-answer"
+                data-incorrect
               >
+                <svg height="32" width="32">
+                  <use href="./src/assets/images/icons.svg#icon-incorrect" />
+                </svg>
+                <span class="f-preset_4 f-color_error"
+                  >Please select an answer</span
+                >
+              </div>
             </div>
           </li>
         </ul>

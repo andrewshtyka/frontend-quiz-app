@@ -38,7 +38,7 @@ body.dark {
 
 main {
   user-select: none;
-  block-size: 100svh;
+  min-block-size: 100svh;
   background-color: var(--bg-clr-1);
 
   display: flex;
@@ -64,6 +64,7 @@ main {
     background-size: cover;
 
     padding-block-end: var(--20);
+    background-position: center;
   }
 }
 
