@@ -52,6 +52,11 @@
 
   & input:checked + label::after {
     transform: translateX(var(--3));
+
+    @media (width >= 48rem) {
+    transform: translateX(var(--5));
+      
+    }
   }
 
   & label:focus-visible {
