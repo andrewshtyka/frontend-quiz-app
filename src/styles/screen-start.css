@@ -43,6 +43,12 @@
     gap: var(--8);
     border-radius: var(--6);
   }
+
+  @media (width >= 64rem) {
+    &:hover {
+      box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+    }
+  }
 }
 
 /* ========== LAYOUT ========== */

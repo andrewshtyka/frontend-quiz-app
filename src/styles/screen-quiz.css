@@ -34,6 +34,12 @@
   @media (width >= 48rem) {
     border-radius: var(--6);
   }
+
+  @media (width >= 64rem) {
+    &:hover {
+      background-color: var(--color-purple-300);
+    }
+  }
 }
 
 .c-progress {
@@ -84,6 +90,12 @@
   & label:focus-visible {
     outline: none;
     box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+  }
+
+  @media (width >= 64rem) {
+    & label:hover {
+      box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+    }
   }
 }
 

@@ -65,7 +65,17 @@
   }
 
   & label:focus-visible::after {
-    scale: 1.2;
+    transform: scale(0.8);
+  }
+
+  & input:checked + label:focus-visible::after {
+    transform: translateX(var(--3)) scale(0.8);
+  }
+
+  @media (width >= 48rem) {
+    & input:checked + label:focus-visible::after {
+      transform: translateX(var(--5)) scale(0.8);
+    }
   }
 }
 
@@ -163,7 +173,6 @@
   gap: var(--2);
 
   position: relative;
-  user-select: none;
 
   &::after {
     content: "";
@@ -178,6 +187,16 @@
 
   @media (width >= 48rem) {
     gap: var(--4);
+  }
+
+  @media (width >= 64rem) {
+    &:hover .c-switcher label::after {
+      transform: translateX(0) scale(0.8);
+    }
+
+    &:hover .c-switcher input:checked + label::after {
+      transform: translateX(var(--5)) scale(0.8);
+    }
   }
 }
 

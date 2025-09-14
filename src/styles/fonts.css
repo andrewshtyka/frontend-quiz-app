@@ -9,17 +9,23 @@ body {
 }
 
 .f-preset_1 {
-  font-size: calc(var(--20) + var(--2));
+  font-size: clamp(
+    calc(var(--20) + var(--2)),
+    calc(var(--16) + 5vw),
+    var(--32)
+  );
+
   line-height: 100%;
   font-weight: 500;
 
   @media (width >= 48rem) {
-    font-size: var(--36);
+    font-size: clamp(var(--36), calc(var(--32) + 5vw), var(--40));
   }
 }
 
 .f-preset_2 {
-  font-size: var(--10);
+  font-size: clamp(var(--9), calc(var(--6) + 3vw), var(--10));
+
   line-height: 120%;
   font-weight: 500;
 
@@ -39,11 +45,7 @@ body {
 }
 
 .f-preset_4 {
-  font-size: clamp(
-    var(--3_5),
-    calc(var(--3) + 1vw),
-    var(--5)
-  );
+  font-size: clamp(var(--3_5), calc(var(--3) + 1vw), var(--5));
   line-height: 120%;
   font-weight: 500;
 
