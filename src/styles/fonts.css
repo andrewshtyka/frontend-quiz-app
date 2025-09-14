@@ -2,10 +2,6 @@ body {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   color: var(--f-clr-1);
-
-  overflow-wrap: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
 }
 
 .f-preset_1 {

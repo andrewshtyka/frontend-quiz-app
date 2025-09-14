@@ -37,7 +37,12 @@ body.dark {
 }
 
 main {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+  cursor: default;
+
   min-block-size: 100svh;
   background-color: var(--bg-clr-1);
 

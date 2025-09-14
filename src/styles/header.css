@@ -27,11 +27,6 @@
 
     border-radius: var(--4);
     background-color: var(--color-purple-600);
-
-    @media (width >= 48rem) {
-      inline-size: var(--12);
-      block-size: var(--7);
-    }
   }
 
   & label::after {
@@ -43,19 +38,10 @@
     background-color: var(--color-white);
     top: var(--1);
     left: var(--1);
-
-    @media (width >= 48rem) {
-      inline-size: var(--5);
-      block-size: var(--5);
-    }
   }
 
   & input:checked + label::after {
     transform: translateX(var(--3));
-
-    @media (width >= 48rem) {
-      transform: translateX(var(--5));
-    }
   }
 
   & label:focus-visible {
@@ -76,6 +62,22 @@
     & input:checked + label:focus-visible::after {
       transform: translateX(var(--5)) scale(0.8);
     }
+  }
+}
+
+@media (width >= 48rem) {
+  .c-switcher label::before {
+    inline-size: var(--12);
+    block-size: var(--7);
+  }
+
+  .c-switcher label::after {
+    inline-size: var(--5);
+    block-size: var(--5);
+  }
+
+  .c-switcher input:checked + label::after {
+    transform: translateX(var(--5));
   }
 }
 
@@ -171,6 +173,7 @@
   display: flex;
   align-items: center;
   gap: var(--2);
+  cursor: pointer;
 
   position: relative;
 
@@ -178,11 +181,6 @@
     content: "";
     position: absolute;
     inset: calc(var(--4) * -1);
-    cursor: pointer;
-
-    @media (width >= 48rem) {
-      inset: calc(var(--6) * -1);
-    }
   }
 
   @media (width >= 48rem) {
@@ -197,6 +195,12 @@
     &:hover .c-switcher input:checked + label::after {
       transform: translateX(var(--5)) scale(0.8);
     }
+  }
+}
+
+@media (width >= 48rem) {
+  .o-switcher_area::after {
+    inset: calc(var(--6) * -1);
   }
 }
 
