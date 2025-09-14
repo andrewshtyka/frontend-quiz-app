@@ -2,13 +2,21 @@
 
 #screen-quiz {
   inline-size: 100%;
+  block-size: 100%;
+
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
-  padding-inline: var(--6);
+
   padding-block: var(--8);
 
   display: flex;
   flex-direction: column;
   gap: var(--10);
+
+  @media (width >= 64rem) {
+    padding-block: 0;
+    flex-direction: row;
+    gap: var(--32);
+  }
 }
 
 .c-btn_primary {
@@ -18,9 +26,14 @@
   background-color: var(--color-purple-600);
 
   color: var(--color-white);
+  text-transform: capitalize;
 
   &:focus-visible {
     background-color: var(--color-purple-300);
+  }
+
+  @media (width >= 48rem) {
+    border-radius: var(--6);
   }
 }
 
@@ -42,6 +55,11 @@
 .c-radio {
   display: flex;
   box-shadow: var(--shdw-1);
+  border-radius: var(--3);
+
+  @media (width >= 48rem) {
+    border-radius: var(--6);
+  }
 
   & input {
     display: none;
@@ -58,6 +76,10 @@
 
     padding: var(--4);
     border-radius: var(--3);
+
+    @media (width >= 48rem) {
+      border-radius: var(--6);
+    }
   }
 
   & label:focus-visible {
@@ -72,12 +94,30 @@
   display: flex;
   flex-direction: column;
   gap: var(--4);
+
+  @media (width >= 48rem) {
+    gap: var(--6);
+  }
+
+  @media (width >= 64rem) {
+    block-size: calc(100% - var(--11));
+  }
 }
 
 .o-hero {
   display: flex;
   flex-direction: column;
   gap: var(--6);
+
+  @media (width >= 48rem) {
+    gap: var(--10);
+  }
+
+  @media (width >= 64rem) {
+    flex: 4;
+    gap: 0;
+    block-size: 100%;
+  }
 }
 
 .o-error_answer {
@@ -89,10 +129,52 @@
   padding-inline-end: var(--1);
 }
 
+#screen-quiz .o-list li:last-child {
+  @media (width >= 64rem) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: relative;
+
+    & [data-incorrect] {
+      position: absolute;
+      bottom: calc((var(--16) + var(--2)) * -1);
+      inline-size: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+#screen-quiz .o-list .o-btn_content-left {
+  max-inline-size: calc(100% - (var(--8) + var(--4) * 2));
+
+  @media (width >= 48rem) {
+    max-inline-size: calc(100% - (var(--10) + var(--4) * 2));
+  }
+
+  @media (width >= 64rem) {
+    max-inline-size: calc(100% - (var(--10) + var(--6) * 2));
+  }
+}
+
 /* ========== UTILITIES ========== */
 
 .u-color_grey-light {
   background-color: var(--color-grey-50);
+}
+
+[data-correct] svg,
+[data-incorrect] svg {
+  inline-size: var(--8);
+  block-size: var(--8);
+
+  @media (width >= 48rem) {
+    inline-size: var(--10);
+    block-size: var(--10);
+  }
 }
 
 /* ========== LOGIC ========== */

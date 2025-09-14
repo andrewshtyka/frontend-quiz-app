@@ -37,30 +37,42 @@ body.dark {
 }
 
 main {
-  min-height: 100svh;
+  user-select: none;
+  block-size: 100svh;
   background-color: var(--bg-clr-1);
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
 
   background-image: var(--img_url-mob);
   background-repeat: no-repeat;
   background-size: contain;
+
+  padding-inline: var(--6);
+
+  @media (width >= 48rem) {
+    background-image: var(--img_url-tablet);
+    background-size: auto;
+
+    padding-inline: var(--16);
+  }
+
+  @media (width >= 64rem) {
+    background-image: var(--img_url-desktop);
+    background-size: cover;
+
+    padding-block-end: var(--20);
+  }
 }
-
-/* ========== COMPONENTS ========== */
-
-/* ========== LAYOUT ========== */
-
-/* ========== UTILITIES ========== */
 
 /* ========== LOGIC ========== */
 
 .is-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
   margin: -1px;
   padding: 0;
   overflow: hidden;

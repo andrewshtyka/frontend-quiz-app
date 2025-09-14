@@ -12,24 +12,40 @@ body {
   font-size: calc(var(--20) + var(--2));
   line-height: 100%;
   font-weight: 500;
+
+  @media (width >= 48rem) {
+    font-size: var(--36);
+  }
 }
 
 .f-preset_2 {
   font-size: var(--10);
   line-height: 120%;
   font-weight: 500;
+
+  @media (width >= 48rem) {
+    font-size: var(--16);
+  }
 }
 
 .f-preset_3 {
   font-size: var(--5);
   line-height: 120%;
   font-weight: 500;
+
+  @media (width >= 48rem) {
+    font-size: var(--9);
+  }
 }
 
 .f-preset_4 {
   font-size: calc(var(--4) + var(--0_5));
   line-height: 120%;
   font-weight: 500;
+
+  @media (width >= 48rem) {
+    font-size: var(--7);
+  }
 }
 
 .f-preset_5 {
@@ -37,6 +53,10 @@ body {
   line-height: 150%;
   font-weight: 400;
   font-style: italic;
+
+  @media (width >= 48rem) {
+    font-size: var(--5);
+  }
 }
 
 /* ========== UTILITIES ========== */

@@ -11,6 +11,11 @@
     block-size: var(--5);
 
     position: relative;
+
+    @media (width >= 48rem) {
+      inline-size: var(--12);
+      block-size: var(--7);
+    }
   }
 
   & label::before {
@@ -19,8 +24,14 @@
 
     inline-size: var(--8);
     block-size: var(--5);
+
     border-radius: var(--4);
     background-color: var(--color-purple-600);
+
+    @media (width >= 48rem) {
+      inline-size: var(--12);
+      block-size: var(--7);
+    }
   }
 
   & label::after {
@@ -32,6 +43,11 @@
     background-color: var(--color-white);
     top: var(--1);
     left: var(--1);
+
+    @media (width >= 48rem) {
+      inline-size: var(--5);
+      block-size: var(--5);
+    }
   }
 
   & input:checked + label::after {
@@ -51,6 +67,11 @@
 
 .c-icon_switcher {
   fill: var(--bg-clr-3);
+
+  @media (width >= 48rem) {
+    inline-size: var(--6);
+    block-size: var(--6);
+  }
 }
 
 .c-icon_area {
@@ -65,11 +86,26 @@
 
   line-height: 0;
   border-radius: var(--1_5);
+
+  @media (width >= 48rem) {
+    inline-size: var(--14);
+    min-inline-size: var(--14);
+
+    block-size: var(--14);
+    min-block-size: var(--14);
+
+    border-radius: var(--3);
+  }
 }
 
 .c-icon_btn {
   inline-size: var(--7);
   block-size: var(--7);
+
+  @media (width >= 48rem) {
+    inline-size: var(--10);
+    block-size: var(--10);
+  }
 }
 
 /* ========== LAYOUT ========== */
@@ -83,20 +119,35 @@
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
   min-block-size: calc(var(--20) - var(--2));
 
-  padding-inline: var(--6);
   padding-block: var(--4);
+
+  @media (width >= 64rem) {
+    padding-block: var(--20);
+    min-block-size: var(--20);
+  }
 }
 
 .o-header_topic {
   display: flex;
   align-items: center;
   gap: var(--4);
+
+  @media (width >= 48rem) {
+    gap: var(--6);
+  }
 }
 
 .o-switcher {
   inline-size: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
+  block-size: var(--10);
+
+  @media (width >= 48rem) {
+    block-size: var(--14);
+  }
 }
 
 .o-switcher_option {
@@ -116,6 +167,14 @@
     position: absolute;
     inset: calc(var(--4) * -1);
     cursor: pointer;
+
+    @media (width >= 48rem) {
+      inset: calc(var(--6) * -1);
+    }
+  }
+
+  @media (width >= 48rem) {
+    gap: var(--4);
   }
 }
 

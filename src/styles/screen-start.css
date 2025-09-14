@@ -2,13 +2,24 @@
 
 #screen-start {
   inline-size: 100%;
+  block-size: 100%;
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
-  padding-inline: var(--6);
+
   padding-block: var(--8);
 
   display: flex;
   flex-direction: column;
   gap: var(--10);
+
+  @media (width >= 48rem) {
+    gap: var(--16);
+  }
+
+  @media (width >= 64rem) {
+    padding-block: 0;
+    flex-direction: row;
+    gap: var(--32);
+  }
 }
 
 .c-btn_secondary {
@@ -27,6 +38,11 @@
   &:focus-visible {
     box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
   }
+
+  @media (width >= 48rem) {
+    gap: var(--8);
+    border-radius: var(--6);
+  }
 }
 
 /* ========== LAYOUT ========== */
@@ -35,18 +51,39 @@
   display: flex;
   flex-direction: column;
   gap: var(--4);
+
+  @media (width >= 64rem) {
+    gap: var(--12);
+    block-size: fit-content;
+
+    flex: 4;
+  }
 }
 
 .o-list {
   display: flex;
   flex-direction: column;
   gap: var(--4);
+  inline-size: 100%;
+  block-size: 100%;
+
+  @media (width >= 48rem) {
+    gap: var(--6);
+  }
+
+  @media (width >= 64rem) {
+    flex: 5;
+  }
 }
 
 .o-btn_content-left {
   display: flex;
   align-items: center;
   gap: var(--4);
+
+  @media (width >= 48rem) {
+    gap: var(--8);
+  }
 }
 
 /* ========== UTILITIES ========== */
@@ -69,6 +106,14 @@
 
 .u-width_max-30ch {
   max-inline-size: 30ch;
+
+  @media (width >= 48rem) {
+    max-inline-size: 48ch;
+  }
+
+  @media (width >= 64rem) {
+    flex: 4;
+  }
 }
 
 /* ========== LOGIC ========== */

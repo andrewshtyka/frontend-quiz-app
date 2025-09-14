@@ -2,18 +2,29 @@
 
 #screen-result {
   inline-size: 100%;
+  block-size: 100%;
   max-inline-size: calc(var(--80) * 3 + var(--48) + var(--2));
-  padding-inline: var(--6);
+
   padding-block: var(--8);
 
   display: flex;
   flex-direction: column;
   gap: var(--10);
+
+  @media (width >= 48rem) {
+    gap: var(--16);
+  }
+
+  @media (width >= 64rem) {
+    padding-block: 0;
+    flex-direction: row;
+    gap: var(--32);
+  }
 }
 
 /* ========== LAYOUT ========== */
 
-.o-result_card {
+.c-result_card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +33,15 @@
   padding: var(--8);
   border-radius: var(--3);
 
+  box-shadow: var(--shdw-1);
+
   background-color: var(--bg-clr-2);
+
+  @media (width >= 48rem) {
+    border-radius: var(--6);
+    padding: var(--12);
+    gap: var(--10);
+  }
 }
 
 .o-result_text {
@@ -36,6 +55,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--4);
+
+  @media (width >= 48rem) {
+    gap: var(--8);
+  }
+
+  @media (width >= 64rem) {
+    flex: 5;
+  }
 }
 
 /* ========== UTILITIES ========== */

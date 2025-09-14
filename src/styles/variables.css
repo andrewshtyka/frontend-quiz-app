@@ -20,6 +20,10 @@
   --color-orange-50: hsl(27, 100%, 96%);
   --color-orange-500: hsl(0, 82%, 63%);
 
+  /* SHADOW COLOR */
+  --shadow-color-light: hsla(220, 29%, 66%, 0.14);
+  --shadow-color-dark: hsla(216, 25%, 25%, 0.14);
+
   /* SPACING */
   --space: calc(1rem / 16);
   --0: calc(var(--space) * 0);
@@ -60,35 +64,35 @@
 }
 
 body {
-  /* SHADOW COLOR */
-  --shadow-color-light: hsla(220, 29%, 66%, 0.14);
-  --shadow-color-dark: hsla(216, 25%, 25%, 0.14);
+  /* ==================== LIGHT ==================== */
 
-  /* LIGHT THEME - COLORS */
+  /* BG COLORS */
   --bg-clr-1: var(--color-grey-50);
   --bg-clr-2: var(--color-white);
   --bg-clr-3: var(--color-grey-500);
 
-  /* LIGHT THEME - FONT COLORS */
+  /* FONT COLORS */
   --f-clr-1: var(--color-blue-900);
   --f-clr-2: var(--color-grey-500);
   --f-clr-error: var(--color-orange-500);
 
-  /* LIGHT THEME - SHADOWS */
+  /* SHADOWS */
   --shdw-1: 0 var(--4) var(--10) 0 var(--shadow-color-light);
 }
 
 body.dark {
-  /* DARK THEME - COLORS */
+  /* ==================== DARK ==================== */
+
+  /* BG COLORS */
   --bg-clr-1: var(--color-blue-900);
   --bg-clr-2: var(--color-blue-850);
   --bg-clr-3: var(--color-white);
 
-  /* DARK THEME - FONT COLORS */
+  /* FONT COLORS */
   --f-clr-1: var(--color-white);
   --f-clr-2: var(--color-blue-300);
   --f-clr-error: var(--color-white);
 
-  /* DARK THEME - SHADOWS */
+  /* SHADOWS */
   --shdw-1: 0 var(--4) var(--10) 0 var(--shadow-color-dark);
 }

@@ -373,7 +373,7 @@
   <body class="">
     <main>
       <!-- #region = 0. HEADER -->
-      <header class="o-header">
+      <div class="o-header">
         <div id="header" class="o-header_topic">
           <span class="c-icon_area">
             <svg class="c-icon_btn" height="28" width="28">
@@ -402,7 +402,7 @@
             </span>
           </label>
         </div>
-      </header>
+      </div>
       <!-- #endregion = 0. HEADER -->
 
       <!-- #region = 1. START SCREEN -->
@@ -518,12 +518,12 @@
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
                 <span class="is-hidden" data-correct>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
                 <span class="is-hidden" data-incorrect>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
                 </span>
@@ -548,12 +548,12 @@
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
                 <span class="is-hidden" data-correct>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
                 <span class="is-hidden" data-incorrect>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
                 </span>
@@ -578,12 +578,12 @@
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
                 <span class="is-hidden" data-correct>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
                 <span class="is-hidden" data-incorrect>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
                 </span>
@@ -608,12 +608,12 @@
                   <span class="f-preset_4" data-answer>—</span>
                 </span>
                 <span class="is-hidden" data-correct>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-correct" />
                   </svg>
                 </span>
                 <span class="is-hidden" data-incorrect>
-                  <svg height="24" width="24">
+                  <svg height="32" width="32">
                     <use href="./src/assets/images/icons.svg#icon-incorrect" />
                   </svg>
                 </span>
@@ -632,6 +632,7 @@
               class="o-error_answer is-hidden"
               aria-live="polite"
               id="error-answer"
+              data-incorrect
             >
               <svg height="32" width="32">
                 <use href="./src/assets/images/icons.svg#icon-incorrect" />
@@ -655,7 +656,7 @@
         </div>
 
         <div class="o-content_result">
-          <div class="o-result_card">
+          <div class="c-result_card">
             <div id="result-text" class="o-header_topic">
               <span class="c-icon_area u-color_purple-100">
                 <svg class="c-icon_btn" height="28" width="28">
