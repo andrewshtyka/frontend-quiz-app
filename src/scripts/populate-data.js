@@ -94,6 +94,7 @@ function submitCheck(status) {
   );
   userScore += isCorrect;
   Result.updateScore(userScore, amountQuestions);
+  radioBlock();
 }
 
 // next question button logic
@@ -102,6 +103,7 @@ function nextQuestion() {
 
   Validate.removeValidationStyles(labels);
   buttonSubmit.blur();
+  radioUnblock();
 
   if (currentQ < amountQuestions) {
     updateData(currentQ);
@@ -129,15 +131,14 @@ export function handleTopicSelect(e) {
     e.type === "click" || e.code === "Enter" || e.code === "Space";
   if (!isInput) return;
 
-  const topicID = e.target.id;
-  const topicName = e.target.textContent.trim();
-  loadTopic(topicID, topicName);
+  const topicName = e.currentTarget.textContent.trim();
+  loadTopic(topicName);
 }
 
 // ================================================================================
 //
 // LOAD TOPIC
-async function loadTopic(topicID, topicName) {
+async function loadTopic(topicName) {
   const dataArray = await getData();
   if (!dataArray) return;
 
@@ -197,4 +198,19 @@ export function resetQuiz() {
   errorMessage.classList.add("is-hidden");
   Radio.resetRadios(radios);
   currentData = null;
+}
+
+// ================================================================================
+//
+// BLOCK / UNBLOCK RADIOS WHEN SUBMITTED
+function radioBlock() {
+  labels.forEach((label) => {
+    label.style.pointerEvents = "none";
+  });
+}
+
+function radioUnblock() {
+  labels.forEach((label) => {
+    label.style.pointerEvents = "auto";
+  });
 }
