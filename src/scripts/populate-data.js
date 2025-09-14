@@ -94,6 +94,7 @@ function submitCheck(status) {
   );
   userScore += isCorrect;
   Result.updateScore(userScore, amountQuestions);
+
   radioBlock();
 }
 
@@ -147,8 +148,6 @@ async function loadTopic(topicName) {
 
   currentData = quiz;
   amountQuestions = quiz.questions.length;
-  userScore = 0;
-  currentQ = 0;
 
   Header.changeTopicIcon(quiz.icon, quiz);
   updateData(currentQ);
@@ -161,6 +160,13 @@ async function loadTopic(topicName) {
 //
 // UPDATE QUESTION
 function updateData(index) {
+  /*
+    add userScore and currentQ to local storage
+  */
+
+  console.log(`userScore is: ${userScore}`);
+  console.log(`currentQ is: ${currentQ}`);
+
   const q = currentData.questions[index];
 
   questionNumber.textContent = `Question ${index + 1} of ${amountQuestions}`;

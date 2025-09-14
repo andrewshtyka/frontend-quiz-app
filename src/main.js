@@ -50,13 +50,23 @@ const optionD = document
   .querySelector("[for='option-d']")
   .querySelector("[data-answer]");
 
+const storedData = JSON.parse(localStorage.getItem("data")) || {};
+const userMode = JSON.parse(localStorage.getItem("darkMode")) || "";
+
 // ================================================================================
 //
 // FUNCTIONS
+
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
+    // show content after it's loaded
+    document.querySelector("main").style.display = "flex";
+
     // dark-light mode switcher
-    Mode.toggleMode();
+    Mode.toggleMode(userMode);
+
+    // load mode from local storage
+    Mode.getMode(userMode);
 
     // choose topic
     btnsQuizList.forEach((btn) => {
