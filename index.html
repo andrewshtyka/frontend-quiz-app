@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Home</title>
+    <title>Frontend Quiz</title>
 
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -22,6 +22,7 @@
     />
 
     <!-- Styles -->
+
     <style media="all">
       /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
       html {
@@ -368,10 +369,11 @@
     <link rel="stylesheet" href="./src/main.css" />
 
     <!-- Scripts -->
+    <script src="./src/scripts/theme-init.js" defer></script>
     <script src="./src/main.js" type="module" defer></script>
   </head>
   <body class="">
-    <main style="display: none">
+    <main>
       <!-- #region = 0. HEADER -->
       <div class="o-header">
         <div id="header" class="o-header_topic">
@@ -382,9 +384,8 @@
           </span>
           <h2 class="f-preset_4"></h2>
         </div>
-
         <!-- Switcher -->
-        <div class="o-switcher">
+        <div class="o-switcher" data-anim-switcher>
           <label class="o-switcher_area" for="mode-switcher">
             <span class="o-switcher_option">
               <svg class="c-icon_switcher" height="16" width="16">
@@ -410,11 +411,11 @@
         <!-- Heading -->
         <div class="o-heading">
           <div class="u-width_max-30ch">
-            <h1 class="f-preset_2">
+            <h1 class="f-preset_2" data-anim-start-heading>
               <span class="f-light">Welcome to the </span>Frontend Quiz!
             </h1>
           </div>
-          <p class="f-preset_5 f-color_grey-light">
+          <p class="f-preset_5 f-color_grey-light" data-anim-start-p>
             Pick a subject to get started.
           </p>
         </div>
@@ -481,6 +482,7 @@
           </li>
         </ul>
       </article>
+
       <!-- #endregion = 1. START SCREEN -->
 
       <!-- #region = 2. QUIZ SCREEN -->
@@ -491,7 +493,6 @@
             <h3 class="f-preset_5 f-color_grey-light" data-number>—</h3>
             <h4 class="f-preset_3" data-question>—</h4>
           </div>
-
           <!-- / Progress bar -->
           <div class="c-progress">
             <div id="progress-bar" class="c-progress_line"></div>
@@ -646,6 +647,7 @@
           </li>
         </ul>
       </article>
+
       <!-- #endregion = 2. QUIZ SCREEN -->
 
       <!-- #region = 3. RESULT SCREEN -->
@@ -670,7 +672,6 @@
               </span>
               <h2 class="f-preset_4">Accessibility</h2>
             </div>
-
             <div class="o-result_text">
               <h4 class="f-preset_1" data-score>-</h4>
               <p class="f-preset_4 f-color_grey-light" data-q-amount>

@@ -14,7 +14,7 @@ import * as Populate from "./scripts/populate-data";
 import * as ShowHide from "./scripts/show-hide-screen";
 import * as Result from "./scripts/result";
 import * as Progress from "./scripts/progress-bar";
-import * as StorageQuiz from "./scripts/local-storage-quiz";
+import * as Animate from "./scripts/anim-screen-start";
 
 // ================================================================================
 //
@@ -58,11 +58,9 @@ const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 //
 // FUNCTIONS
 
+
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
-    // show content after it's loaded
-    document.querySelector("main").style.display = "flex";
-
     // dark-light mode switcher
     Mode.toggleMode(userMode);
 
@@ -73,6 +71,9 @@ window.addEventListener("load", () => {
     // if (savedData.topic) {
     //   Populate.restoreQuiz(savedData);
     // }
+
+    // animate start screen on load
+    Animate.animStartScreen(userMode);
 
     // choose topic
     btnsQuizList.forEach((btn) => {
