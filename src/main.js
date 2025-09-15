@@ -14,6 +14,7 @@ import * as Populate from "./scripts/populate-data";
 import * as ShowHide from "./scripts/show-hide-screen";
 import * as Result from "./scripts/result";
 import * as Progress from "./scripts/progress-bar";
+import * as StorageQuiz from "./scripts/local-storage-quiz";
 
 // ================================================================================
 //
@@ -50,8 +51,8 @@ const optionD = document
   .querySelector("[for='option-d']")
   .querySelector("[data-answer]");
 
-const storedData = JSON.parse(localStorage.getItem("data")) || {};
 const userMode = JSON.parse(localStorage.getItem("darkMode")) || "";
+const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 
 // ================================================================================
 //
@@ -67,6 +68,11 @@ window.addEventListener("load", () => {
 
     // load mode from local storage
     Mode.getMode(userMode);
+
+    // check if local storage with questions has saved topic
+    // if (savedData.topic) {
+    //   Populate.restoreQuiz(savedData);
+    // }
 
     // choose topic
     btnsQuizList.forEach((btn) => {
@@ -95,4 +101,5 @@ function resetAll() {
   ShowHide.hideHeader();
 
   Populate.resetQuiz();
+  localStorage.removeItem("data");
 }

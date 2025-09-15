@@ -4,6 +4,7 @@ import * as ShowHide from "./show-hide-screen";
 import * as Result from "./result";
 import * as Radio from "./radio";
 import * as Validate from "./validate";
+import * as StorageQuiz from "./local-storage-quiz";
 
 // ================================================================================
 //
@@ -133,6 +134,7 @@ export function handleTopicSelect(e) {
   if (!isInput) return;
 
   const topicName = e.currentTarget.textContent.trim();
+
   loadTopic(topicName);
 }
 
@@ -156,26 +158,43 @@ async function loadTopic(topicName) {
   ShowHide.showHeader();
 }
 
+// load data from localStorage
+export async function restoreQuiz(savedData) {
+  const dataArray = await getData();
+  if (!dataArray) return;
+
+  const quiz = dataArray.quizzes.find((q) => q.title === savedData.topic);
+  if (!quiz) return;
+
+  currentData = quiz;
+  amountQuestions = quiz.questions.length;
+  currentQ = savedData.questionIndex || 0;
+  userScore = savedData.userScore || 0;
+
+  Header.changeTopicIcon(quiz.icon, quiz);
+  updateData(currentQ);
+  Result.updateScore(userScore, amountQuestions);
+
+  ShowHide.showOrHideScreen(screenStart, screenQuiz);
+  ShowHide.showHeader();
+}
+
 // ================================================================================
 //
 // UPDATE QUESTION
 function updateData(index) {
-  /*
-    add userScore and currentQ to local storage
-  */
+  const currentQuestion = currentData.questions[index];
 
-  console.log(`userScore is: ${userScore}`);
-  console.log(`currentQ is: ${currentQ}`);
-
-  const q = currentData.questions[index];
+  // save 'question index', 'score' and 'topic name' to local storage
+  StorageQuiz.saveQuizState(index, userScore, currentData.title);
 
   questionNumber.textContent = `Question ${index + 1} of ${amountQuestions}`;
   Progress.progressBar(index);
-  questionText.textContent = q.question;
-  optionA.textContent = q.options[0];
-  optionB.textContent = q.options[1];
-  optionC.textContent = q.options[2];
-  optionD.textContent = q.options[3];
+  questionText.textContent = currentQuestion.question;
+  optionA.textContent = currentQuestion.options[0];
+  optionB.textContent = currentQuestion.options[1];
+  optionC.textContent = currentQuestion.options[2];
+  optionD.textContent = currentQuestion.options[3];
 
   isChecked = false;
 }
@@ -183,7 +202,7 @@ function updateData(index) {
 // ================================================================================
 //
 // FETCH DATA
-async function getData() {
+export async function getData() {
   try {
     const response = await fetch("/data.json");
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -209,13 +228,13 @@ export function resetQuiz() {
 // ================================================================================
 //
 // BLOCK / UNBLOCK RADIOS WHEN SUBMITTED
-function radioBlock() {
+export function radioBlock() {
   labels.forEach((label) => {
     label.style.pointerEvents = "none";
   });
 }
 
-function radioUnblock() {
+export function radioUnblock() {
   labels.forEach((label) => {
     label.style.pointerEvents = "auto";
   });

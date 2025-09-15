@@ -50,10 +50,8 @@ export function getMode(mode) {
   if (mode) {
     document.body.classList.add("dark");
     inputEl.checked = true;
-    console.log("dark");
   } else {
     document.body.classList.remove("dark");
     inputEl.checked = false;
-    console.log("light");
   }
 }
