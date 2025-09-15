@@ -28,6 +28,9 @@ body {
   --img_url-mob: var(--img-bg_light-mob);
   --img_url-tablet: var(--img-bg_light-tablet);
   --img_url-desktop: var(--img-bg_light-desktop);
+
+  /* ANIMATION */
+  transition: background 500ms;
 }
 
 body.dark {

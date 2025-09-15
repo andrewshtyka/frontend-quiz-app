@@ -1,57 +1,42 @@
+import * as AnimateSwitcher from "./anim-dark-light-mode";
+
 const inputEl = document.getElementById("mode-switcher");
 const labelEl = document.querySelector("label[for=mode-switcher]");
 
-// listn to switcher
-export function toggleMode(mode) {
-  // toggle on Click
+// listen to switcher
+export function toggleMode() {
   labelEl.addEventListener("click", (e) => {
     e.preventDefault();
-    applyMode(inputEl);
-    saveMode(mode);
+    const isDark = !inputEl.checked; // міняємо стан
+    inputEl.checked = isDark;
+    AnimateSwitcher.animModeChange(isDark);
+    saveMode(isDark);
   });
 
-  // toggle on Spacebar or Enter
   labelEl.addEventListener("keydown", (e) => {
     const isInput = e.code === "Enter" || e.code === "Space";
-
     if (isInput) {
       e.preventDefault();
-      applyMode(inputEl);
-      saveMode(mode);
+      const isDark = !inputEl.checked;
+      inputEl.checked = isDark;
+      AnimateSwitcher.animModeChange(isDark);
+      saveMode(isDark);
     }
   });
 }
 
-// toggle 'change' on checkbox
-function applyMode(input) {
-  input.checked = !input.checked;
-  input.dispatchEvent(new Event("change"));
-  changeCurrentMode(input.checked);
-}
-
-// add .dark to body
-function changeCurrentMode(state) {
-  if (state) {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
-}
-
-// save mode to local storage
-function saveMode(storage) {
-  const isDark = document.body.classList.contains("dark");
-  storage = isDark;
-  localStorage.setItem("darkMode", JSON.stringify(storage));
+// save mode to localStorage
+function saveMode(isDark) {
+  localStorage.setItem("darkMode", JSON.stringify(isDark));
 }
 
 // get and apply mode on page load
-export function getMode(mode) {
-  if (mode) {
-    document.body.classList.add("dark");
-    inputEl.checked = true;
-  } else {
-    document.body.classList.remove("dark");
-    inputEl.checked = false;
-  }
+export function getMode() {
+  let savedMode = JSON.parse(localStorage.getItem("darkMode"));
+
+  if (savedMode === null) savedMode = false;
+  inputEl.checked = savedMode;
+
+  if (savedMode) document.body.classList.add("dark");
+  else document.body.classList.remove("dark");
 }

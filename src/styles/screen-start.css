@@ -38,7 +38,7 @@
   position: relative;
 
   &:focus-visible {
-    /* box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600); */
+    outline: none;
   }
 
   @media (width >= 48rem) {
@@ -63,7 +63,11 @@
   block-size: calc(100% + var(--1_5));
 
   overflow: hidden;
-  border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
+  border-radius: clamp(
+    calc(var(--3) + var(--0_5)),
+    calc(var(--2) + 2vw),
+    calc(var(--4) + var(--0_5))
+  );
 
   & rect {
     inline-size: 100%;
@@ -71,8 +75,16 @@
     fill: rgba(0, 0, 0, 0);
     stroke: var(--color-purple-600);
     stroke-width: var(--1_5);
-    rx: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
-    ry: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
+    rx: clamp(
+      calc(var(--3) + var(--0_5)),
+      calc(var(--2) + 2vw),
+      calc(var(--4) + var(--0_5))
+    );
+    ry: clamp(
+      calc(var(--3) + var(--0_5)),
+      calc(var(--2) + 2vw),
+      calc(var(--4) + var(--0_5))
+    );
 
     stroke-dasharray: 99999;
     stroke-dashoffset: 99999;
@@ -81,11 +93,11 @@
 
 @media (width >= 48rem) {
   .c-button_border {
-    border-radius: var(--6);
+    border-radius: var(--7);
 
     & rect {
-      rx: var(--6);
-      ry: var(--6);
+      rx: var(--7);
+      ry: var(--7);
     }
   }
 }
