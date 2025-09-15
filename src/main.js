@@ -58,7 +58,6 @@ const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 //
 // FUNCTIONS
 
-
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
     // dark-light mode switcher
@@ -73,7 +72,7 @@ window.addEventListener("load", () => {
     // }
 
     // animate start screen on load
-    Animate.animStartScreen(userMode);
+    Animate.animStartScreen();
 
     // choose topic
     btnsQuizList.forEach((btn) => {
@@ -103,4 +102,5 @@ function resetAll() {
 
   Populate.resetQuiz();
   localStorage.removeItem("data");
+  Animate.animStartScreen();
 }

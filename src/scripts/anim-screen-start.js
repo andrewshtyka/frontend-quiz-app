@@ -13,9 +13,10 @@ const btnsStart = document.getElementById("btns-quiz").querySelectorAll("li");
 const switcher = document.querySelector("[data-anim-switcher]");
 
 // animate start screen
-export function animStartScreen(userMode) {
+export function animStartScreen() {
   gsap.set(mainBG, {
     opacity: 0,
+    pointerEvents: "none",
   });
 
   const animationTimeline = gsap.timeline();
@@ -38,7 +39,6 @@ export function animStartScreen(userMode) {
       splitHeading.words,
       {
         y: 100,
-        duration: 0.8,
         autoAlpha: 0,
         stagger: 0.1,
         ease: "power1.out",
@@ -49,7 +49,6 @@ export function animStartScreen(userMode) {
       splitParagraph.lines,
       {
         y: 100,
-        duration: 0.8,
         autoAlpha: 0,
         stagger: 0.1,
         ease: "power1.out",
@@ -62,9 +61,8 @@ export function animStartScreen(userMode) {
         y: 100,
         autoAlpha: 0,
         stagger: 0.1,
-        duration: 0.8,
       },
-      "< +=0.2"
+      "< +=0.1"
     )
     .from(
       switcher,
@@ -73,6 +71,9 @@ export function animStartScreen(userMode) {
         opacity: 0,
         ease: "power1.Out",
       },
-      "< +=0.8"
-    );
+      "< +=0.5"
+    )
+    .add(() => {
+      mainBG.style.pointerEvents = "auto";
+    });
 }
