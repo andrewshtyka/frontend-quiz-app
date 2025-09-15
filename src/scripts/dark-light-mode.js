@@ -7,7 +7,7 @@ const labelEl = document.querySelector("label[for=mode-switcher]");
 export function toggleMode() {
   labelEl.addEventListener("click", (e) => {
     e.preventDefault();
-    const isDark = !inputEl.checked; // міняємо стан
+    const isDark = !inputEl.checked;
     inputEl.checked = isDark;
     AnimateSwitcher.animModeChange(isDark);
     saveMode(isDark);
