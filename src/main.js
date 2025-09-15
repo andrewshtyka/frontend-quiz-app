@@ -14,7 +14,8 @@ import * as Populate from "./scripts/populate-data";
 import * as ShowHide from "./scripts/show-hide-screen";
 import * as Result from "./scripts/result";
 import * as Progress from "./scripts/progress-bar";
-import * as Animate from "./scripts/anim-screen-start";
+import * as AnimateOnLoad from "./scripts/anim-screen-start";
+import * as AnimateButtons from "./scripts/anim-buttons";
 
 // ================================================================================
 //
@@ -54,6 +55,8 @@ const optionD = document
 const userMode = JSON.parse(localStorage.getItem("darkMode")) || "";
 const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 
+const mq = window.matchMedia("(min-width: 1024px)");
+
 // ================================================================================
 //
 // FUNCTIONS
@@ -71,11 +74,41 @@ window.addEventListener("load", () => {
     //   Populate.restoreQuiz(savedData);
     // }
 
-    // animate start screen on load
-    Animate.animStartScreen();
+    // animation
+    AnimateOnLoad.animStartScreen();
+
+    if (mq.matches) {
+      btnsQuizList.forEach((btn) => {
+        btn.addEventListener("mouseenter", AnimateButtons.animStartButtons);
+        btn.addEventListener("mouseleave", AnimateButtons.animStartButtons);
+      });
+    }
+
+    mq.addEventListener("change", (e) => {
+      if (e.matches) {
+        btnsQuizList.forEach((btn) => {
+          btn.addEventListener("mouseenter", AnimateButtons.animStartButtons);
+          btn.addEventListener("mouseleave", AnimateButtons.animStartButtons);
+        });
+      } else {
+        btnsQuizList.forEach((btn) => {
+          btn.removeEventListener(
+            "mouseenter",
+            AnimateButtons.animStartButtons
+          );
+          btn.removeEventListener(
+            "mouseleave",
+            AnimateButtons.animStartButtons
+          );
+        });
+      }
+    });
 
     // choose topic
     btnsQuizList.forEach((btn) => {
+      btn.addEventListener("focus", AnimateButtons.animStartButtons);
+      btn.addEventListener("blur", AnimateButtons.animStartButtons);
+
       btn.addEventListener("click", Populate.handleTopicSelect);
       btn.addEventListener("keydown", Populate.handleTopicSelect);
     });

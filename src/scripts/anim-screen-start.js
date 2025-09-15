@@ -5,7 +5,6 @@ gsap.registerPlugin(SplitText);
 // ================================================================================
 //
 // ANIMATION ELEMENTS
-const bodyEl = document.body;
 const mainBG = document.querySelector("main");
 const startHeading = document.querySelector("[data-anim-start-heading]");
 const startParagraph = document.querySelector("[data-anim-start-p]");
@@ -19,7 +18,8 @@ export function animStartScreen() {
     pointerEvents: "none",
   });
 
-  const animationTimeline = gsap.timeline();
+  const animationTimeline = gsap.timeline({});
+
   let splitHeading = SplitText.create(startHeading, {
     type: "words",
     mask: "words",
@@ -58,7 +58,7 @@ export function animStartScreen() {
     .from(
       btnsStart,
       {
-        y: 100,
+        y: 50,
         autoAlpha: 0,
         stagger: 0.1,
       },
@@ -75,5 +75,5 @@ export function animStartScreen() {
     )
     .add(() => {
       mainBG.style.pointerEvents = "auto";
-    });
+    }, "< +=0.1");
 }

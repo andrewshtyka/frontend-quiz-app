@@ -35,8 +35,10 @@
 
   box-shadow: var(--shdw-1);
 
+  position: relative;
+
   &:focus-visible {
-    box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+    /* box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600); */
   }
 
   @media (width >= 48rem) {
@@ -45,8 +47,45 @@
   }
 
   @media (width >= 64rem) {
-    &:hover {
+    /* &:hover {
       box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+    } */
+  }
+}
+
+.c-button_border {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: calc(100% + var(--1_5));
+  block-size: calc(100% + var(--1_5));
+
+  overflow: hidden;
+  border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
+
+  & rect {
+    inline-size: 100%;
+    block-size: 100%;
+    fill: rgba(0, 0, 0, 0);
+    stroke: var(--color-purple-600);
+    stroke-width: var(--1_5);
+    rx: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
+    ry: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
+
+    stroke-dasharray: 99999;
+    stroke-dashoffset: 99999;
+  }
+}
+
+@media (width >= 48rem) {
+  .c-button_border {
+    border-radius: var(--6);
+
+    & rect {
+      rx: var(--6);
+      ry: var(--6);
     }
   }
 }
