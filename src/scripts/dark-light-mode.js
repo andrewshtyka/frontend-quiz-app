@@ -2,25 +2,16 @@ import * as AnimateSwitcher from "./anim-dark-light-mode";
 
 const inputEl = document.getElementById("mode-switcher");
 const labelEl = document.querySelector("label[for=mode-switcher]");
+let isAnimating = false;
 
 // listen to switcher
 export function toggleMode() {
-  labelEl.addEventListener("click", (e) => {
-    e.preventDefault();
-    const isDark = !inputEl.checked;
-    inputEl.checked = isDark;
-    AnimateSwitcher.animModeChange(isDark);
-    saveMode(isDark);
-  });
+  labelEl.addEventListener("click", handleToggle);
 
   labelEl.addEventListener("keydown", (e) => {
     const isInput = e.code === "Enter" || e.code === "Space";
     if (isInput) {
-      e.preventDefault();
-      const isDark = !inputEl.checked;
-      inputEl.checked = isDark;
-      AnimateSwitcher.animModeChange(isDark);
-      saveMode(isDark);
+      handleToggle(e);
     }
   });
 }
@@ -39,4 +30,20 @@ export function getMode() {
 
   if (savedMode) document.body.classList.add("dark");
   else document.body.classList.remove("dark");
+}
+
+function handleToggle(e) {
+  e.preventDefault();
+
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const isDark = !inputEl.checked;
+  inputEl.checked = isDark;
+  AnimateSwitcher.animModeChange(isDark);
+  saveMode(isDark);
+
+  setTimeout(() => {
+    isAnimating = false;
+  }, 700);
 }
