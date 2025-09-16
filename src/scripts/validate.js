@@ -1,3 +1,5 @@
+import * as AnimateRadios from "./anim-radios";
+
 // check if user answer is correct
 export function validateAnswer(
   userAnswer,
@@ -18,7 +20,7 @@ export function validateAnswer(
 
     // styles
     currentRadio.className = "";
-    currentRadio.classList.add("is-correct");
+    AnimateRadios.animRadioStyleCorrect(currentRadio);
 
     return 1;
   } else {
@@ -30,7 +32,7 @@ export function validateAnswer(
 
     // styles
     currentRadio.className = "";
-    currentRadio.classList.add("is-incorrect");
+    AnimateRadios.animRadioStyleIncorrect(currentRadio);
 
     return 0;
   }
@@ -40,6 +42,9 @@ export function validateAnswer(
 export function removeValidationStyles(labels) {
   labels.forEach((label) => {
     label.className = "";
+
+    AnimateRadios.resetRadioStyleCorrect(label);
+    AnimateRadios.resetRadioStyleIncorrect(label);
 
     label.querySelector("[data-correct]").className = "";
     label.querySelector("[data-correct]").classList.add("is-hidden");

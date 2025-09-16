@@ -102,6 +102,104 @@
   }
 }
 
+.c-radio_border-correct {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: calc(100% + var(--1_5));
+  block-size: calc(100% + var(--1_5));
+
+  overflow: hidden;
+  border-radius: clamp(
+    calc(var(--3) + var(--0_5)),
+    calc(var(--2) + 2vw),
+    calc(var(--4) + var(--0_5))
+  );
+
+  & rect {
+    inline-size: 100%;
+    block-size: 100%;
+    fill: rgba(0, 0, 0, 0);
+    stroke: var(--color-green-500);
+    stroke-width: var(--1_5);
+    rx: clamp(
+      calc(var(--3) + var(--0_5)),
+      calc(var(--2) + 2vw),
+      calc(var(--4) + var(--0_5))
+    );
+    ry: clamp(
+      calc(var(--3) + var(--0_5)),
+      calc(var(--2) + 2vw),
+      calc(var(--4) + var(--0_5))
+    );
+
+    stroke-dasharray: 99999;
+    stroke-dashoffset: 99999;
+  }
+}
+
+@media (width >= 48rem) {
+  .c-radio_border-correct {
+    border-radius: var(--7);
+
+    & rect {
+      rx: var(--7);
+      ry: var(--7);
+    }
+  }
+}
+
+.c-radio_border-incorrect {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: calc(100% + var(--1_5));
+  block-size: calc(100% + var(--1_5));
+
+  overflow: hidden;
+  border-radius: clamp(
+    calc(var(--3) + var(--0_5)),
+    calc(var(--2) + 2vw),
+    calc(var(--4) + var(--0_5))
+  );
+
+  & rect {
+    inline-size: 100%;
+    block-size: 100%;
+    fill: rgba(0, 0, 0, 0);
+    stroke: var(--color-orange-500);
+    stroke-width: var(--1_5);
+    rx: clamp(
+      calc(var(--3) + var(--0_5)),
+      calc(var(--2) + 2vw),
+      calc(var(--4) + var(--0_5))
+    );
+    ry: clamp(
+      calc(var(--3) + var(--0_5)),
+      calc(var(--2) + 2vw),
+      calc(var(--4) + var(--0_5))
+    );
+
+    stroke-dasharray: 99999;
+    stroke-dashoffset: 99999;
+  }
+}
+
+@media (width >= 48rem) {
+  .c-radio_border-incorrect {
+    border-radius: var(--7);
+
+    & rect {
+      rx: var(--7);
+      ry: var(--7);
+    }
+  }
+}
+
 /* ========== LAYOUT ========== */
 
 .o-heading {

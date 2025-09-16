@@ -1,11 +1,12 @@
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-gsap.registerPlugin(DrawSVGPlugin);
+import { SplitText } from "gsap/SplitText";
+gsap.registerPlugin(SplitText, DrawSVGPlugin);
 
 // animate start screen buttons
 export function animStartButtons(event) {
-  const btn = event.target;
-  const rect = btn.querySelector("rect");
+  const btn = event.currentTarget;
+  const rect = btn.querySelector(".c-button_border rect");
   const icon = btn.querySelector(".c-icon_btn");
 
   if (!btn.animation) {
@@ -41,4 +42,61 @@ export function animStartButtons(event) {
   } else if (event.type === "mouseleave" || event.type === "blur") {
     btn.animation.reverse();
   }
+}
+
+// animate error under button
+export function animErrorMessage(el) {
+  el.classList.remove("is-hidden");
+
+  gsap.fromTo(
+    el,
+    {
+      y: 20,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.3,
+    }
+  );
+}
+
+// animate error under button
+export function animErrorMessageHide(el) {
+  gsap.fromTo(
+    el,
+    {
+      y: 0,
+      opacity: 1,
+    },
+    {
+      y: 20,
+      opacity: 0,
+      duration: 0.3,
+      onComplete: () => {
+        el.classList.add("is-hidden");
+      },
+    }
+  );
+}
+
+// change text in button
+export function animateButtonText(button, newText) {
+  const textEl = button.querySelector(".c-btn_primary-text");
+
+  const tl = gsap.timeline();
+
+  tl.to(textEl, {
+    opacity: 0,
+    duration: 0.1,
+    ease: "power1.in",
+    onComplete: () => {
+      textEl.textContent = newText;
+    },
+  }).to(textEl, {
+    opacity: 1,
+    duration: 0.1,
+    ease: "power1.out",
+  });
 }

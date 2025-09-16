@@ -28,6 +28,7 @@ const btnsQuizList = document
 const btnRestart = document.getElementById("button-restart");
 const screenStart = document.getElementById("screen-start");
 const screenResult = document.getElementById("screen-result");
+const buttonSubmit = document.getElementById("button-submit");
 
 const questionNumber = document
   .getElementById("screen-quiz")
@@ -100,17 +101,16 @@ window.addEventListener("load", () => {
         btnsQuizList.forEach((btn) => {
           btn.removeEventListener(
             "mouseenter",
-            AnimateButtons.animStartButtons()
+            AnimateButtons.animStartButtons
           );
           btn.removeEventListener(
             "mouseleave",
-            AnimateButtons.animStartButtons()
+            AnimateButtons.animStartButtons
           );
         });
       }
     });
 
-    // choose topic
     btnsQuizList.forEach((btn) => {
       btn.addEventListener("focus", AnimateButtons.animStartButtons);
       btn.addEventListener("blur", AnimateButtons.animStartButtons);
@@ -128,6 +128,27 @@ window.addEventListener("load", () => {
         radio.addEventListener("mouseleave", AnimateRadios.animRadios);
       });
     }
+
+    mw1024.addEventListener("change", (e) => {
+      if (e.matches) {
+        radiosAll.forEach((radio) => {
+          radio.addEventListener("mouseenter", AnimateRadios.animRadios);
+          radio.addEventListener("mouseleave", AnimateRadios.animRadios);
+        });
+      } else {
+        radiosAll.forEach((radio) => {
+          radio.removeEventListener("mouseenter", AnimateRadios.animRadios);
+          radio.removeEventListener("mouseleave", AnimateRadios.animRadios);
+        });
+      }
+    });
+
+    radiosAll.forEach((radio) => {
+      radio.addEventListener("focus", AnimateRadios.animRadios);
+      radio.addEventListener("blur", AnimateRadios.animRadios);
+    });
+
+
 
     // ============================================================
     //

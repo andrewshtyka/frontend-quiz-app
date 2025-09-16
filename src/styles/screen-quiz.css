@@ -19,6 +19,9 @@
 }
 
 .c-btn_primary {
+  position: relative;
+
+  overflow: hidden;
   padding-block: var(--5);
   inline-size: 100%;
   border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
@@ -27,19 +30,35 @@
   color: var(--color-white);
   text-transform: capitalize;
 
-  &:focus-visible {
-    background-color: var(--color-purple-300);
+  &:focus-visible .c-btn_primary-overlay {
+    transform: translateY(0%);
   }
 
   @media (width >= 48rem) {
     border-radius: var(--6);
   }
+}
 
-  @media (width >= 64rem) {
-    &:hover {
-      background-color: var(--color-purple-300);
-    }
+.c-btn_primary-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  transform: translateY(100%);
+  transition: transform 300ms ease-out;
+
+  background-color: var(--color-purple-300);
+}
+
+@media (width >= 64rem) {
+  .c-btn_primary:hover .c-btn_primary-overlay {
+    transform: translateY(0%);
   }
+}
+
+.c-btn_primary-text {
+  position: relative;
 }
 
 .c-progress {
@@ -91,13 +110,6 @@
 
   & label:focus-visible {
     outline: none;
-    /* box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600); */
-  }
-
-  @media (width >= 64rem) {
-    /* & label:hover {
-      box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
-    } */
   }
 }
 

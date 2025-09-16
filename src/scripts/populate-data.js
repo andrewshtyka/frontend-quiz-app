@@ -5,6 +5,7 @@ import * as Radio from "./radio";
 import * as Validate from "./validate";
 import * as StorageQuiz from "./local-storage-quiz";
 import * as AnimateStartScreen from "./anim-screen-quiz";
+import * as AnimateButtons from "./anim-buttons";
 
 // ================================================================================
 //
@@ -47,7 +48,7 @@ labels.forEach((label) => {
     currentRadio = e.currentTarget;
     isChecked = Radio.radioCheck(label, radios);
     userAnswer = label.querySelector("[data-answer]").textContent;
-    errorMessage.classList.add("is-hidden");
+    AnimateButtons.animErrorMessageHide(errorMessage);
   });
 
   label.addEventListener("keydown", (e) => {
@@ -56,7 +57,7 @@ labels.forEach((label) => {
       currentRadio = e.currentTarget;
       isChecked = Radio.radioCheck(label, radios);
       userAnswer = label.querySelector("[data-answer]").textContent;
-      errorMessage.classList.add("is-hidden");
+      AnimateButtons.animErrorMessageHide(errorMessage);
     }
   });
 });
@@ -65,6 +66,7 @@ labels.forEach((label) => {
 //
 // SUBMIT
 let isSubmitted = false;
+
 buttonSubmit.addEventListener("click", () => {
   if (!isSubmitted) {
     submitCheck(isChecked);
@@ -76,15 +78,16 @@ buttonSubmit.addEventListener("click", () => {
 // submit button logic
 function submitCheck(status) {
   if (!status) {
-    errorMessage.classList.remove("is-hidden");
+    AnimateButtons.animErrorMessage(errorMessage);
     return;
   }
 
   isSubmitted = true;
+
   if (amountQuestions - currentQ === 1) {
-    buttonSubmit.textContent = "Show Result";
+    AnimateButtons.animateButtonText(buttonSubmit, "Show Result");
   } else {
-    buttonSubmit.textContent = "Next Question";
+    AnimateButtons.animateButtonText(buttonSubmit, "Next Question");
   }
 
   isCorrect = Validate.validateAnswer(
@@ -104,7 +107,6 @@ function nextQuestion() {
   currentQ++;
 
   Validate.removeValidationStyles(labels);
-  buttonSubmit.blur();
   radioUnblock();
 
   if (currentQ < amountQuestions) {
@@ -113,7 +115,7 @@ function nextQuestion() {
     userAnswer = null;
     isChecked = false;
     isSubmitted = false;
-    buttonSubmit.textContent = "Submit Answer";
+    AnimateButtons.animateButtonText(buttonSubmit, "Submit Answer");
   } else {
     AnimateStartScreen.animHideShowScreen(screenQuiz, screenResult);
     Radio.resetRadios(radios);
@@ -121,7 +123,7 @@ function nextQuestion() {
     userAnswer = null;
     isChecked = false;
     isSubmitted = false;
-    buttonSubmit.textContent = "Submit Answer";
+    AnimateButtons.animateButtonText(buttonSubmit, "Submit Answer");
   }
 }
 

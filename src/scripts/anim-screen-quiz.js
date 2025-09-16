@@ -9,6 +9,7 @@ export function animHideShowScreen(hideEl, showEl) {
   animation
     .to(hideEl, {
       opacity: 0,
+      y: 30,
       duration: 0.3,
       onComplete: () => {
         hideEl.classList.add("is-removed");
@@ -19,9 +20,11 @@ export function animHideShowScreen(hideEl, showEl) {
       showEl,
       {
         opacity: 0,
+        y: 30,
       },
       {
         opacity: 1,
+        y: 0,
       }
     );
 }

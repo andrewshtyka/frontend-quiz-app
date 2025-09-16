@@ -1,3 +1,5 @@
+import * as AnimateRadios from "./anim-radios";
+
 // check clicked radio and show icon
 export function radioCheck(label, radios) {
   resetRadios(radios);
@@ -6,7 +8,7 @@ export function radioCheck(label, radios) {
   const clicked = document.getElementById(id);
 
   clicked.checked = true;
-  label.querySelector("[data-correct]").classList.remove("is-hidden");
+  AnimateRadios.animRadioCheckIcon(label);
 
   return clicked.checked;
 }
