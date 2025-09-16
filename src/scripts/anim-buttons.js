@@ -44,7 +44,7 @@ export function animStartButtons(event) {
   }
 }
 
-// animate error under button
+// show error under button
 export function animErrorMessage(el) {
   el.classList.remove("is-hidden");
 
@@ -62,7 +62,7 @@ export function animErrorMessage(el) {
   );
 }
 
-// animate error under button
+// hide error under button
 export function animErrorMessageHide(el) {
   gsap.fromTo(
     el,

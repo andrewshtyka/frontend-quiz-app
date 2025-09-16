@@ -43,13 +43,13 @@ export function removeValidationStyles(labels) {
   labels.forEach((label) => {
     label.className = "";
 
-    AnimateRadios.resetRadioStyleCorrect(label);
-    AnimateRadios.resetRadioStyleIncorrect(label);
-
     label.querySelector("[data-correct]").className = "";
     label.querySelector("[data-correct]").classList.add("is-hidden");
 
     label.querySelector("[data-incorrect]").className = "";
     label.querySelector("[data-incorrect]").classList.add("is-hidden");
+
+    AnimateRadios.resetRadioStyleCorrect(label);
+    AnimateRadios.resetRadioStyleIncorrect(label);
   });
 }

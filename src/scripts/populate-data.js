@@ -68,11 +68,18 @@ labels.forEach((label) => {
 let isSubmitted = false;
 
 buttonSubmit.addEventListener("click", () => {
+  if (buttonSubmit.disabled) return;
+
   if (!isSubmitted) {
     submitCheck(isChecked);
   } else {
     nextQuestion();
   }
+
+  buttonSubmit.disabled = true;
+  setTimeout(() => {
+    buttonSubmit.disabled = false;
+  }, 500);
 });
 
 // submit button logic
