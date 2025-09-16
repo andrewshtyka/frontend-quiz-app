@@ -181,6 +181,7 @@ export async function restoreQuiz(savedData) {
   userScore = savedData.userScore || 0;
 
   Header.changeTopicIcon(quiz.icon, quiz);
+
   updateData(currentQ);
   Result.updateScore(userScore, amountQuestions);
 
@@ -194,16 +195,31 @@ export async function restoreQuiz(savedData) {
 function updateData(index) {
   const currentQuestion = currentData.questions[index];
 
-  // save 'question index', 'score' and 'topic name' to local storage
   StorageQuiz.saveQuizState(index, userScore, currentData.title);
 
-  questionNumber.textContent = `Question ${index + 1} of ${amountQuestions}`;
-  Progress.progressBar(index);
-  questionText.textContent = currentQuestion.question;
-  optionA.textContent = currentQuestion.options[0];
-  optionB.textContent = currentQuestion.options[1];
-  optionC.textContent = currentQuestion.options[2];
-  optionD.textContent = currentQuestion.options[3];
+  if (index !== 0) {
+    // questions after 1st
+    AnimateStartScreen.animHideShowScreenQuiz(screenQuiz, () => {
+      questionNumber.textContent = `Question ${
+        index + 1
+      } of ${amountQuestions}`;
+      Progress.progressBar(index);
+      questionText.textContent = currentQuestion.question;
+      optionA.textContent = currentQuestion.options[0];
+      optionB.textContent = currentQuestion.options[1];
+      optionC.textContent = currentQuestion.options[2];
+      optionD.textContent = currentQuestion.options[3];
+    });
+  } else {
+    // only 1st question (no animation)
+    questionNumber.textContent = `Question ${index + 1} of ${amountQuestions}`;
+    Progress.progressBar(index);
+    questionText.textContent = currentQuestion.question;
+    optionA.textContent = currentQuestion.options[0];
+    optionB.textContent = currentQuestion.options[1];
+    optionC.textContent = currentQuestion.options[2];
+    optionD.textContent = currentQuestion.options[3];
+  }
 
   isChecked = false;
 }

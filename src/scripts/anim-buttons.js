@@ -89,14 +89,14 @@ export function animateButtonText(button, newText) {
 
   tl.to(textEl, {
     opacity: 0,
-    duration: 0.1,
+    duration: 0.2,
     ease: "power1.in",
     onComplete: () => {
       textEl.textContent = newText;
     },
   }).to(textEl, {
     opacity: 1,
-    duration: 0.1,
+    duration: 0.2,
     ease: "power1.out",
   });
 }

@@ -2,14 +2,14 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(SplitText);
 
-// transition between screens
+// transition between section screens
 export function animHideShowScreen(hideEl, showEl) {
   const animation = gsap.timeline();
 
   animation
     .to(hideEl, {
       opacity: 0,
-      y: 30,
+      y: 10,
       duration: 0.3,
       onComplete: () => {
         hideEl.classList.add("is-removed");
@@ -20,7 +20,7 @@ export function animHideShowScreen(hideEl, showEl) {
       showEl,
       {
         opacity: 0,
-        y: 30,
+        y: 10,
       },
       {
         opacity: 1,
@@ -76,6 +76,27 @@ export function animHideHeader() {
     duration: 0.3,
     onComplete: () => {
       headerEl.classList.add("is-hidden");
+    },
+  });
+}
+
+// transition between quiz screens
+export function animHideShowScreenQuiz(screenEl, updateContentCallback) {
+  gsap.to(screenEl, {
+    autoAlpha: 0,
+    y: 10,
+    duration: 0.3,
+    ease: "power1.inOut",
+    onComplete: () => {
+      // update content (when UI is invisible)
+      if (typeof updateContentCallback === "function") updateContentCallback();
+
+      // show UI with updated content
+      gsap.fromTo(
+        screenEl,
+        { autoAlpha: 0, y: 10 },
+        { autoAlpha: 1, y: 0, duration: 0.3, ease: "power1.inOut" }
+      );
     },
   });
 }
