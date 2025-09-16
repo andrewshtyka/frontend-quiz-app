@@ -14,7 +14,8 @@ export function changeTopicIcon(name, data) {
 
 // function to change icon in topic
 function changeIcons(el, name) {
-  el.href.baseVal = `./src/assets/images/icons.svg#icon-${name}`;
+  // el.href.baseVal = `./src/assets/images/icons.svg#icon-${name}`;
+  el.href.baseVal = `/icons.svg#icon-${name}`;
 }
 
 // ======================================================================
