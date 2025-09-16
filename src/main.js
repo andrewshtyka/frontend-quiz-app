@@ -55,7 +55,7 @@ const optionD = document
 const userMode = JSON.parse(localStorage.getItem("darkMode")) || "";
 const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 
-const mq = window.matchMedia("(min-width: 1024px)");
+const mw1024 = window.matchMedia("(min-width: 1024px)");
 
 // ================================================================================
 //
@@ -77,14 +77,14 @@ window.addEventListener("load", () => {
     // animation
     AnimateOnLoad.animStartScreen();
 
-    if (mq.matches) {
+    if (mw1024.matches) {
       btnsQuizList.forEach((btn) => {
         btn.addEventListener("mouseenter", AnimateButtons.animStartButtons);
         btn.addEventListener("mouseleave", AnimateButtons.animStartButtons);
       });
     }
 
-    mq.addEventListener("change", (e) => {
+    mw1024.addEventListener("change", (e) => {
       if (e.matches) {
         btnsQuizList.forEach((btn) => {
           btn.addEventListener("mouseenter", AnimateButtons.animStartButtons);

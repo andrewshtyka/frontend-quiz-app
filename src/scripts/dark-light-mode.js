@@ -5,8 +5,10 @@ const labelEl = document.querySelector("label[for=mode-switcher]");
 let isAnimating = false;
 
 // listen to switcher
-export function toggleMode() {
-  labelEl.addEventListener("click", handleToggle);
+export function toggleMode(userMode) {
+  labelEl.addEventListener("click", (e) => {
+    handleToggle(e);
+  });
 
   labelEl.addEventListener("keydown", (e) => {
     const isInput = e.code === "Enter" || e.code === "Space";
@@ -45,5 +47,5 @@ function handleToggle(e) {
 
   setTimeout(() => {
     isAnimating = false;
-  }, 700);
+  }, 1000);
 }

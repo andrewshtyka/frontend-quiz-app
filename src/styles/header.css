@@ -16,6 +16,18 @@
       inline-size: var(--12);
       block-size: var(--7);
     }
+
+    & .c-handler {
+      position: absolute;
+      inline-size: var(--3);
+      block-size: var(--3);
+      border-radius: 50%;
+      background-color: var(--color-white);
+      top: var(--1);
+      left: var(--1);
+
+      transition: all 150ms ease-in-out;
+    }
   }
 
   & label::before {
@@ -29,7 +41,7 @@
     background-color: var(--color-purple-600);
   }
 
-  & label::after {
+  /* & label::after {
     content: "";
     position: absolute;
     inline-size: var(--3);
@@ -39,12 +51,14 @@
     top: var(--1);
     left: var(--1);
 
-    z-index: 100000;
-
     transition: all 150ms ease-in-out;
-  }
+  } */
 
-  & input:checked + label::after {
+  /* & input:checked + label::after {
+    transform: translateX(var(--3));
+  } */
+
+  & input:checked + label .c-handler {
     transform: translateX(var(--3));
   }
 
@@ -55,18 +69,28 @@
     outline: none;
   }
 
-  & label:focus-visible::after {
+  /* & label:focus-visible::after {
+    transform: scale(0.6);
+  } */
+
+  & label:focus-visible .c-handler {
     transform: scale(0.6);
   }
 
-  & input:checked + label:focus-visible::after {
-    /* transform: translateX(var(--3)); */
+  /* & input:checked + label:focus-visible::after {
+    transform: translateX(var(--3)) scale(0.6);
+  } */
+
+  & input:checked + label:focus-visible .c-handler {
     transform: translateX(var(--3)) scale(0.6);
   }
 
   @media (width >= 48rem) {
-    & input:checked + label:focus-visible::after {
-      /* transform: translateX(var(--5)); */
+    /* & input:checked + label:focus-visible::after {
+      transform: translateX(var(--5)) scale(0.6);
+    } */
+
+    & input:checked + label:focus-visible .c-handler {
       transform: translateX(var(--5)) scale(0.6);
     }
   }
@@ -78,12 +102,21 @@
     block-size: var(--7);
   }
 
-  .c-switcher label::after {
+  /* .c-switcher label::after {
+    inline-size: var(--5);
+    block-size: var(--5);
+  } */
+
+  .c-switcher label .c-handler {
     inline-size: var(--5);
     block-size: var(--5);
   }
 
-  .c-switcher input:checked + label::after {
+  /* .c-switcher input:checked + label::after {
+    transform: translateX(var(--5));
+  } */
+
+  .c-switcher input:checked + label .c-handler {
     transform: translateX(var(--5));
   }
 }
@@ -197,11 +230,19 @@
   }
 
   @media (width >= 64rem) {
-    &:hover .c-switcher label::after {
+    /* &:hover .c-switcher label::after {
+      transform: translateX(0) scale(0.6);
+    } */
+
+    &:hover .c-switcher label .c-handler {
       transform: translateX(0) scale(0.6);
     }
 
-    &:hover .c-switcher input:checked + label::after {
+    /* &:hover .c-switcher input:checked + label::after {
+      transform: translateX(var(--5)) scale(0.6);
+    } */
+
+    &:hover .c-switcher input:checked + label .c-handler {
       transform: translateX(var(--5)) scale(0.6);
     }
   }
