@@ -82,6 +82,8 @@
     padding: var(--4);
     border-radius: clamp(var(--3), calc(var(--2) + 2vw), var(--4));
 
+    position: relative;
+
     @media (width >= 48rem) {
       border-radius: var(--6);
     }
@@ -89,13 +91,13 @@
 
   & label:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
+    /* box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600); */
   }
 
   @media (width >= 64rem) {
-    & label:hover {
+    /* & label:hover {
       box-shadow: 0 0 0 calc(var(--px) + var(--0_5)) var(--color-purple-600);
-    }
+    } */
   }
 }
 
@@ -145,6 +147,7 @@
 }
 
 #screen-quiz .o-list .o-btn_content-left {
+  overflow: hidden;
   max-inline-size: calc(100% - (var(--8) + var(--4) * 2));
 
   @media (width >= 48rem) {

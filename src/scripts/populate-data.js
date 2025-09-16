@@ -1,10 +1,10 @@
 import * as Header from "./header";
 import * as Progress from "./progress-bar";
-import * as ShowHide from "./show-hide-screen";
 import * as Result from "./result";
 import * as Radio from "./radio";
 import * as Validate from "./validate";
 import * as StorageQuiz from "./local-storage-quiz";
+import * as AnimateStartScreen from "./anim-screen-quiz";
 
 // ================================================================================
 //
@@ -115,7 +115,7 @@ function nextQuestion() {
     isSubmitted = false;
     buttonSubmit.textContent = "Submit Answer";
   } else {
-    ShowHide.showOrHideScreen(screenQuiz, screenResult);
+    AnimateStartScreen.animHideShowScreen(screenQuiz, screenResult);
     Radio.resetRadios(radios);
     currentQ = 0;
     userAnswer = null;
@@ -154,8 +154,8 @@ async function loadTopic(topicName) {
   Header.changeTopicIcon(quiz.icon, quiz);
   updateData(currentQ);
 
-  ShowHide.showOrHideScreen(screenStart, screenQuiz);
-  ShowHide.showHeader();
+  AnimateStartScreen.animShowHeader();
+  AnimateStartScreen.animHideShowScreen(screenStart, screenQuiz);
 }
 
 // load data from localStorage
@@ -175,8 +175,8 @@ export async function restoreQuiz(savedData) {
   updateData(currentQ);
   Result.updateScore(userScore, amountQuestions);
 
-  ShowHide.showOrHideScreen(screenStart, screenQuiz);
-  ShowHide.showHeader();
+  AnimateStartScreen.animHideShowScreen(screenStart, screenQuiz);
+  AnimateStartScreen.animShowHeader();
 }
 
 // ================================================================================

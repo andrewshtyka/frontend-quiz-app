@@ -2,11 +2,11 @@ import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(DrawSVGPlugin);
 
-// animate start screen buttons
-export function animStartButtons(event) {
+// animate quiz radios
+export function animRadios(event) {
   const btn = event.target;
   const rect = btn.querySelector("rect");
-  const icon = btn.querySelector(".c-icon_btn");
+  const icon = btn.querySelector(".c-icon_area span");
 
   if (!btn.animation) {
     btn.animation = gsap.timeline({ paused: true });

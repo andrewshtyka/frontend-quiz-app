@@ -11,11 +11,12 @@ import "./styles/screen-result.css";
 // JS
 import * as Mode from "./scripts/dark-light-mode";
 import * as Populate from "./scripts/populate-data";
-import * as ShowHide from "./scripts/show-hide-screen";
 import * as Result from "./scripts/result";
 import * as Progress from "./scripts/progress-bar";
 import * as AnimateOnLoad from "./scripts/anim-screen-start";
 import * as AnimateButtons from "./scripts/anim-buttons";
+import * as AnimateStartScreen from "./scripts/anim-screen-quiz";
+import * as AnimateRadios from "./scripts/anim-radios";
 
 // ================================================================================
 //
@@ -52,19 +53,20 @@ const optionD = document
   .querySelector("[for='option-d']")
   .querySelector("[data-answer]");
 
+const radiosAll = document.getElementById("radios").querySelectorAll("label");
+
 const userMode = JSON.parse(localStorage.getItem("darkMode")) || "";
 const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 
 const mw1024 = window.matchMedia("(min-width: 1024px)");
-// let browserWidth = window.innerWidth;
 
 // ================================================================================
 //
 // FUNCTIONS
-
-// main code
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
+    resetAll();
+
     // dark-light mode switcher
     Mode.toggleMode(userMode);
 
@@ -76,9 +78,11 @@ window.addEventListener("load", () => {
     //   Populate.restoreQuiz(savedData);
     // }
 
-    // animation
     AnimateOnLoad.animStartScreen();
 
+    // ============================================================
+    //
+    // START SCREEN BTNS
     if (mw1024.matches) {
       btnsQuizList.forEach((btn) => {
         btn.addEventListener("mouseenter", AnimateButtons.animStartButtons);
@@ -96,11 +100,11 @@ window.addEventListener("load", () => {
         btnsQuizList.forEach((btn) => {
           btn.removeEventListener(
             "mouseenter",
-            AnimateButtons.animStartButtons
+            AnimateButtons.animStartButtons()
           );
           btn.removeEventListener(
             "mouseleave",
-            AnimateButtons.animStartButtons
+            AnimateButtons.animStartButtons()
           );
         });
       }
@@ -115,8 +119,23 @@ window.addEventListener("load", () => {
       btn.addEventListener("keydown", Populate.handleTopicSelect);
     });
 
-    // restart
-    btnRestart.addEventListener("click", resetAll);
+    // ============================================================
+    //
+    // QUIZ RADIOS
+    if (mw1024.matches) {
+      radiosAll.forEach((radio) => {
+        radio.addEventListener("mouseenter", AnimateRadios.animRadios);
+        radio.addEventListener("mouseleave", AnimateRadios.animRadios);
+      });
+    }
+
+    // ============================================================
+    //
+    // RESULT SCREEN BTN
+    btnRestart.addEventListener("click", (e) => {
+      AnimateStartScreen.animHideHeader();
+      AnimateStartScreen.animHideShowScreen(screenResult, screenStart);
+    });
   });
 });
 
@@ -132,10 +151,7 @@ function resetAll() {
   optionC.textContent = "";
   optionD.textContent = "";
 
-  ShowHide.showOrHideScreen(screenResult, screenStart);
-  ShowHide.hideHeader();
-
   Populate.resetQuiz();
+
   localStorage.removeItem("data");
-  Animate.animStartScreen();
 }
