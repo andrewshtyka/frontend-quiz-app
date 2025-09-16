@@ -56,11 +56,13 @@ const userMode = JSON.parse(localStorage.getItem("darkMode")) || "";
 const savedData = JSON.parse(localStorage.getItem("data") || "{}");
 
 const mw1024 = window.matchMedia("(min-width: 1024px)");
+// let browserWidth = window.innerWidth;
 
 // ================================================================================
 //
 // FUNCTIONS
 
+// main code
 window.addEventListener("load", () => {
   document.fonts.ready.then(() => {
     // dark-light mode switcher

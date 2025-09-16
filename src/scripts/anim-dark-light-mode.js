@@ -3,9 +3,7 @@ import gsap from "gsap";
 let clone = null;
 let anim = null;
 
-export function animModeChange(toDark) {
-  console.log(toDark);
-
+export function animModeChange(toDark, browserWidth) {
   const body = document.body;
 
   if (!clone) {
@@ -16,27 +14,30 @@ export function animModeChange(toDark) {
     clone.style.width = "100%";
     clone.style.height = "100%";
     clone.style.zIndex = 9999;
-    // clone.style.opacity = "50%";
     clone.style.pointerEvents = "none";
-    // clone.querySelector(".c-handler").style.transform = "scale(0.6)";
-    // clone.querySelector(".c-handler").style.transformOrigin = "100% 50%";
     document.body.parentNode.appendChild(clone);
   }
 
-  // if (toDark) {
-  //   clone.querySelector(".c-handler").style.transform =
-  //     "translateX(20px) scale(0.6)";
-  //   clone.classList.add("dark");
-  // } else {
-  //   clone.querySelector(".c-handler").style.transform =
-  //     "translateX(0) scale(0.6)";
-  //   clone.classList.remove("dark");
-  // }
-
-  if (toDark) {
-    clone.classList.add("dark");
+  if (browserWidth >= 768) {
+    if (toDark) {
+      clone.querySelector(".c-handler").style.transform =
+        "translateX(20px) scale(0.6)";
+      clone.classList.add("dark");
+    } else {
+      clone.querySelector(".c-handler").style.transform =
+        "translateX(0) scale(0.6)";
+      clone.classList.remove("dark");
+    }
   } else {
-    clone.classList.remove("dark");
+    if (toDark) {
+      clone.querySelector(".c-handler").style.transform =
+        "translateX(12px) scale(0.6)";
+      clone.classList.add("dark");
+    } else {
+      clone.querySelector(".c-handler").style.transform =
+        "translateX(0) scale(0.6)";
+      clone.classList.remove("dark");
+    }
   }
 
   if (anim) anim.kill();

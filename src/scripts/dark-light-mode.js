@@ -42,7 +42,9 @@ function handleToggle(e) {
 
   const isDark = !inputEl.checked;
   inputEl.checked = isDark;
-  AnimateSwitcher.animModeChange(isDark);
+
+  const browserWidth = window.innerWidth;
+  AnimateSwitcher.animModeChange(isDark, browserWidth);
   saveMode(isDark);
 
   setTimeout(() => {
