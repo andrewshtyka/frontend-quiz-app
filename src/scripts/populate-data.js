@@ -1,29 +1,29 @@
-import * as Header from "./header";
-import * as Progress from "./progress-bar";
-import * as Result from "./result";
-import * as Radio from "./radio";
-import * as Validate from "./validate";
-import * as StorageQuiz from "./local-storage-quiz";
-import * as AnimateStartScreen from "./anim-screen-quiz";
-import * as AnimateButtons from "./anim-buttons";
+import * as Header from './header';
+import * as Progress from './progress-bar';
+import * as Result from './result';
+import * as Radio from './radio';
+import * as Validate from './validate';
+import * as StorageQuiz from './local-storage-quiz';
+import * as AnimateStartScreen from './anim-screen-quiz';
+import * as AnimateButtons from './anim-buttons';
 
 // ================================================================================
 //
 // VARIABLES
-const errorMessage = document.getElementById("error-answer");
-const questionNumber = document.querySelector("#screen-quiz [data-number]");
-const questionText = document.querySelector("#screen-quiz [data-question]");
+const errorMessage = document.getElementById('error-answer');
+const questionNumber = document.querySelector('#screen-quiz [data-number]');
+const questionText = document.querySelector('#screen-quiz [data-question]');
 const optionA = document.querySelector("[for='option-a'] [data-answer]");
 const optionB = document.querySelector("[for='option-b'] [data-answer]");
 const optionC = document.querySelector("[for='option-c'] [data-answer]");
 const optionD = document.querySelector("[for='option-d'] [data-answer]");
-const buttonSubmit = document.getElementById("button-submit");
-const screenStart = document.getElementById("screen-start");
-const screenQuiz = document.getElementById("screen-quiz");
-const screenResult = document.getElementById("screen-result");
+const buttonSubmit = document.getElementById('button-submit');
+const screenStart = document.getElementById('screen-start');
+const screenQuiz = document.getElementById('screen-quiz');
+const screenResult = document.getElementById('screen-result');
 
 const radios = document.querySelectorAll('input[type="radio"][name="option-answer"]');
-const labels = document.querySelectorAll("#radios label[for]");
+const labels = document.querySelectorAll('#radios label[for]');
 
 // ================================================================================
 //
@@ -41,20 +41,20 @@ let currentRadio = null;
 //
 // RADIOS
 labels.forEach(label => {
-	label.addEventListener("click", e => {
+	label.addEventListener('click', e => {
 		e.preventDefault();
 		currentRadio = e.currentTarget;
 		isChecked = Radio.radioCheck(label, radios);
-		userAnswer = label.querySelector("[data-answer]").textContent;
+		userAnswer = label.querySelector('[data-answer]').textContent;
 		AnimateButtons.animErrorMessageHide(errorMessage);
 	});
 
-	label.addEventListener("keydown", e => {
-		if (e.code === "Enter" || e.code === "Space") {
+	label.addEventListener('keydown', e => {
+		if (e.code === 'Enter' || e.code === 'Space') {
 			e.preventDefault();
 			currentRadio = e.currentTarget;
 			isChecked = Radio.radioCheck(label, radios);
-			userAnswer = label.querySelector("[data-answer]").textContent;
+			userAnswer = label.querySelector('[data-answer]').textContent;
 			AnimateButtons.animErrorMessageHide(errorMessage);
 		}
 	});
@@ -65,7 +65,7 @@ labels.forEach(label => {
 // SUBMIT
 let isSubmitted = false;
 
-buttonSubmit.addEventListener("click", () => {
+buttonSubmit.addEventListener('click', () => {
 	if (buttonSubmit.disabled) return;
 
 	if (!isSubmitted) {
@@ -90,9 +90,9 @@ function submitCheck(status) {
 	isSubmitted = true;
 
 	if (amountQuestions - currentQ === 1) {
-		AnimateButtons.animateButtonText(buttonSubmit, "Show Result");
+		AnimateButtons.animateButtonText(buttonSubmit, 'Show Result');
 	} else {
-		AnimateButtons.animateButtonText(buttonSubmit, "Next Question");
+		AnimateButtons.animateButtonText(buttonSubmit, 'Next Question');
 	}
 
 	isCorrect = Validate.validateAnswer(userAnswer, currentData.questions[currentQ].answer, currentRadio, labels);
@@ -115,7 +115,7 @@ function nextQuestion() {
 		userAnswer = null;
 		isChecked = false;
 		isSubmitted = false;
-		AnimateButtons.animateButtonText(buttonSubmit, "Submit Answer");
+		AnimateButtons.animateButtonText(buttonSubmit, 'Submit Answer');
 	} else {
 		AnimateStartScreen.animHideShowScreen(screenQuiz, screenResult);
 		Radio.resetRadios(radios);
@@ -123,7 +123,7 @@ function nextQuestion() {
 		userAnswer = null;
 		isChecked = false;
 		isSubmitted = false;
-		AnimateButtons.animateButtonText(buttonSubmit, "Submit Answer");
+		AnimateButtons.animateButtonText(buttonSubmit, 'Submit Answer');
 	}
 }
 
@@ -131,7 +131,7 @@ function nextQuestion() {
 //
 // TOPIC SELECT
 export function handleTopicSelect(e) {
-	const isInput = e.type === "click" || e.code === "Enter" || e.code === "Space";
+	const isInput = e.type === 'click' || e.code === 'Enter' || e.code === 'Space';
 	if (!isInput) return;
 
 	const topicName = e.currentTarget.textContent.trim();
@@ -219,11 +219,11 @@ function updateData(index) {
 // FETCH DATA
 export async function getData() {
 	try {
-		const response = await fetch("/data.json");
+		const response = await fetch('/data.json');
 		if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 		return await response.json();
 	} catch (err) {
-		console.error("Fetch error:", err);
+		console.error('Fetch error:', err);
 	}
 }
 
@@ -235,7 +235,7 @@ export function resetQuiz() {
 	isChecked = false;
 	userScore = 0;
 	currentQ = 0;
-	errorMessage.classList.add("is-hidden");
+	errorMessage.classList.add('is-hidden');
 	Radio.resetRadios(radios);
 	currentData = null;
 }
@@ -245,12 +245,14 @@ export function resetQuiz() {
 // BLOCK / UNBLOCK RADIOS WHEN SUBMITTED
 export function radioBlock() {
 	labels.forEach(label => {
-		label.style.pointerEvents = "none";
+		label.style.pointerEvents = 'none';
 	});
 }
 
 export function radioUnblock() {
 	labels.forEach(label => {
-		label.style.pointerEvents = "auto";
+		label.style.pointerEvents = 'auto';
 	});
 }
+
+console.log("");
