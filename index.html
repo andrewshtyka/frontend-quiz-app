@@ -1,660 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Frontend Quiz</title>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Frontend Quiz</title>
 
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<!-- Viewport -->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <!-- Appearance, Fonts -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/images/favicon-32x32.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+		<!-- Appearance, Fonts -->
+		<link rel="icon" type="image/png" sizes="32x32" href="./src/assets/images/favicon-32x32.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
 
-    <!-- Styles -->
-    <style media="all">
-      /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-      html {
-        line-height: 1.15;
-        -webkit-text-size-adjust: 100%;
-      }
-      body {
-        margin: 0;
-      }
-      main {
-        display: block;
-      }
-      h1 {
-        font-size: 2em;
-        margin: 0.67em 0;
-      }
-      hr {
-        box-sizing: content-box;
-        height: 0;
-        overflow: visible;
-      }
-      pre {
-        font-family: monospace, monospace;
-        font-size: 1em;
-      }
-      a {
-        background-color: transparent;
-        text-decoration: none;
-        color: currentColor;
-      }
-      abbr[title] {
-        border-bottom: none;
-        text-decoration: underline dotted;
-      }
-      b,
-      strong {
-        font-weight: 700;
-      }
-      code,
-      kbd,
-      samp {
-        font-family: monospace, monospace;
-        font-size: 1em;
-      }
-      small {
-        font-size: 80%;
-      }
-      sub,
-      sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
-      sub {
-        bottom: -0.25em;
-      }
-      sup {
-        top: -0.5em;
-      }
-      img {
-        border-style: none;
-        font-style: italic;
-        max-width: 100%;
-        height: auto;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-size: 100%;
-        line-height: 1.15;
-        margin: 0;
-      }
-      button,
-      input {
-        overflow: visible;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      [type="button"],
-      [type="reset"],
-      [type="submit"] {
-        -webkit-appearance: button;
-      }
-      button::-moz-focus-inner,
-      [type="button"]::-moz-focus-inner,
-      [type="reset"]::-moz-focus-inner,
-      [type="submit"]::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-      }
-      button:-moz-focusring,
-      [type="button"]:-moz-focusring,
-      [type="reset"]:-moz-focusring,
-      [type="submit"]:-moz-focusring {
-        outline: 1px dotted ButtonText;
-      }
-      fieldset {
-        border: 0;
-        padding: 0;
-        margin: 0;
-        min-width: 0;
-      }
-      legend {
-        box-sizing: border-box;
-        color: inherit;
-        display: table;
-        max-width: 100%;
-        padding: 0;
-        white-space: normal;
-      }
-      progress {
-        vertical-align: baseline;
-      }
-      textarea {
-        overflow: auto;
-        resize: vertical;
-      }
-      [type="checkbox"],
-      [type="radio"] {
-        box-sizing: border-box;
-        padding: 0;
-      }
-      [type="number"]::-webkit-inner-spin-button,
-      [type="number"]::-webkit-outer-spin-button {
-        height: auto;
-      }
-      [type="search"] {
-        -webkit-appearance: textfield;
-        outline-offset: -2px;
-      }
-      [type="search"]::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
-      ::-webkit-file-upload-button {
-        -webkit-appearance: button;
-        font: inherit;
-      }
-      details {
-        display: block;
-      }
-      summary {
-        display: list-item;
-      }
-      template {
-        display: none;
-      }
-      [hidden] {
-        display: none;
-      }
-      *,
-      :before,
-      :after {
-        box-sizing: inherit;
-      }
-      address {
-        font-style: inherit;
-      }
-      dfn,
-      cite,
-      em,
-      i {
-        font-style: italic;
-      }
-      ul,
-      ol {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      p,
-      figure {
-        margin: 0;
-        padding: 0;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: 1em;
-        font-weight: inherit;
-        margin: 0;
-      }
-      a,
-      area,
-      button,
-      input,
-      label,
-      select,
-      textarea,
-      [tabindex] {
-        touch-action: manipulation;
-      }
-      table {
-        border-spacing: 0;
-        border-collapse: collapse;
-      }
-      hr {
-        display: block;
-        margin: 1em 0;
-        padding: 0;
-        height: 1px;
-        border: 0;
-        border-top: 1px solid #ccc;
-      }
-      audio,
-      canvas,
-      iframe,
-      img,
-      svg,
-      video {
-        vertical-align: middle;
-      }
-      audio:not([controls]) {
-        display: none;
-        height: 0;
-      }
-      input,
-      select,
-      textarea {
-        display: block;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        outline: 0;
-        border: 0;
-        border-radius: 0;
-        background: none;
-        color: inherit;
-        font: inherit;
-        line-height: normal;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-      }
-      button,
-      .c-button {
-        display: inline-block;
-        overflow: visible;
-        margin: 0;
-        padding: 0;
-        outline: 0;
-        border: 0;
-        background: none;
-        color: inherit;
-        vertical-align: middle;
-        text-align: center;
-        text-decoration: none;
-        text-transform: none;
-        font: inherit;
-        line-height: normal;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      :root {
-        --color: #000000;
-        --color-bg: #ffffff;
-        --font-size: 1rem;
-      }
-      html {
-        min-height: 100%;
-        line-height: 1.3;
-        font-family: ff("primary");
-        color: var(--color);
-        background-color: var(--color-bg);
-        font-size: var(--font-size);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transition: background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-        width: 100%;
-      }
-      html[data-theme="dark"] {
-        --color-bg: #000000;
-        --color: #ffffff;
-      }
-      html[data-theme="primary"] {
-        --color-bg: #da382e;
-      }
-      html[data-theme="secondary"] {
-        --color-bg: #312dfb;
-        --color: #ffffff;
-      }
-      body {
-        width: 100%;
-      }
-      .c-preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        color: #fff;
-        z-index: 9999;
-        transition: opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
-      }
-      .c-preloader svg {
-        display: block;
-        width: min(250px, 70vw);
-        height: 10vh;
-      }
-      html:not(.is-first-loading) .c-preloader {
-        opacity: 0;
-        pointer-events: none;
-      }
-      .c-preloader_outer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .c-preloader_logo {
-        display: block;
-        opacity: 1;
-        animation: preloaderAppear 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
-        animation-fill-mode: backwards;
-      }
-      @keyframes preloaderAppear {
-        0% {
-          opacity: 0;
-          transform: scale(0.9) translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1) translate3d(0, 0, 0);
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="./src/main.css" />
+		<!-- Styles -->
+		<style media="all">
+			/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+			html {
+				line-height: 1.15;
+				-webkit-text-size-adjust: 100%;
+			}
+			body {
+				margin: 0;
+			}
+			main {
+				display: block;
+			}
+			h1 {
+				font-size: 2em;
+				margin: 0.67em 0;
+			}
+			hr {
+				box-sizing: content-box;
+				height: 0;
+				overflow: visible;
+			}
+			pre {
+				font-family: monospace, monospace;
+				font-size: 1em;
+			}
+			a {
+				background-color: transparent;
+				text-decoration: none;
+				color: currentColor;
+			}
+			abbr[title] {
+				border-bottom: none;
+				text-decoration: underline dotted;
+			}
+			b,
+			strong {
+				font-weight: 700;
+			}
+			code,
+			kbd,
+			samp {
+				font-family: monospace, monospace;
+				font-size: 1em;
+			}
+			small {
+				font-size: 80%;
+			}
+			sub,
+			sup {
+				font-size: 75%;
+				line-height: 0;
+				position: relative;
+				vertical-align: baseline;
+			}
+			sub {
+				bottom: -0.25em;
+			}
+			sup {
+				top: -0.5em;
+			}
+			img {
+				border-style: none;
+				font-style: italic;
+				max-width: 100%;
+				height: auto;
+			}
+			button,
+			input,
+			optgroup,
+			select,
+			textarea {
+				font-family: inherit;
+				font-size: 100%;
+				line-height: 1.15;
+				margin: 0;
+			}
+			button,
+			input {
+				overflow: visible;
+			}
+			button,
+			select {
+				text-transform: none;
+			}
+			button,
+			[type="button"],
+			[type="reset"],
+			[type="submit"] {
+				-webkit-appearance: button;
+			}
+			button::-moz-focus-inner,
+			[type="button"]::-moz-focus-inner,
+			[type="reset"]::-moz-focus-inner,
+			[type="submit"]::-moz-focus-inner {
+				border-style: none;
+				padding: 0;
+			}
+			button:-moz-focusring,
+			[type="button"]:-moz-focusring,
+			[type="reset"]:-moz-focusring,
+			[type="submit"]:-moz-focusring {
+				outline: 1px dotted ButtonText;
+			}
+			fieldset {
+				border: 0;
+				padding: 0;
+				margin: 0;
+				min-width: 0;
+			}
+			legend {
+				box-sizing: border-box;
+				color: inherit;
+				display: table;
+				max-width: 100%;
+				padding: 0;
+				white-space: normal;
+			}
+			progress {
+				vertical-align: baseline;
+			}
+			textarea {
+				overflow: auto;
+				resize: vertical;
+			}
+			[type="checkbox"],
+			[type="radio"] {
+				box-sizing: border-box;
+				padding: 0;
+			}
+			[type="number"]::-webkit-inner-spin-button,
+			[type="number"]::-webkit-outer-spin-button {
+				height: auto;
+			}
+			[type="search"] {
+				-webkit-appearance: textfield;
+				outline-offset: -2px;
+			}
+			[type="search"]::-webkit-search-decoration {
+				-webkit-appearance: none;
+			}
+			::-webkit-file-upload-button {
+				-webkit-appearance: button;
+				font: inherit;
+			}
+			details {
+				display: block;
+			}
+			summary {
+				display: list-item;
+			}
+			template {
+				display: none;
+			}
+			[hidden] {
+				display: none;
+			}
+			*,
+			:before,
+			:after {
+				box-sizing: inherit;
+			}
+			address {
+				font-style: inherit;
+			}
+			dfn,
+			cite,
+			em,
+			i {
+				font-style: italic;
+			}
+			ul,
+			ol {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			p,
+			figure {
+				margin: 0;
+				padding: 0;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-size: 1em;
+				font-weight: inherit;
+				margin: 0;
+			}
+			a,
+			area,
+			button,
+			input,
+			label,
+			select,
+			textarea,
+			[tabindex] {
+				touch-action: manipulation;
+			}
+			table {
+				border-spacing: 0;
+				border-collapse: collapse;
+			}
+			hr {
+				display: block;
+				margin: 1em 0;
+				padding: 0;
+				height: 1px;
+				border: 0;
+				border-top: 1px solid #ccc;
+			}
+			audio,
+			canvas,
+			iframe,
+			img,
+			svg,
+			video {
+				vertical-align: middle;
+			}
+			audio:not([controls]) {
+				display: none;
+				height: 0;
+			}
+			input,
+			select,
+			textarea {
+				display: block;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				outline: 0;
+				border: 0;
+				border-radius: 0;
+				background: none;
+				color: inherit;
+				font: inherit;
+				line-height: normal;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+			}
+			button,
+			.c-button {
+				display: inline-block;
+				overflow: visible;
+				margin: 0;
+				padding: 0;
+				outline: 0;
+				border: 0;
+				background: none;
+				color: inherit;
+				vertical-align: middle;
+				text-align: center;
+				text-decoration: none;
+				text-transform: none;
+				font: inherit;
+				line-height: normal;
+				cursor: pointer;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+			}
+			:root {
+				--color: #000000;
+				--color-bg: #ffffff;
+				--font-size: 1rem;
+			}
+			html {
+				min-height: 100%;
+				line-height: 1.3;
+				font-family: ff("primary");
+				color: var(--color);
+				background-color: var(--color-bg);
+				font-size: var(--font-size);
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				transition: background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+				width: 100%;
+			}
+			html[data-theme="dark"] {
+				--color-bg: #000000;
+				--color: #ffffff;
+			}
+			html[data-theme="primary"] {
+				--color-bg: #da382e;
+			}
+			html[data-theme="secondary"] {
+				--color-bg: #312dfb;
+				--color: #ffffff;
+			}
+			body {
+				width: 100%;
+			}
+			.c-preloader {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #000;
+				color: #fff;
+				z-index: 9999;
+				transition: opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+			}
+			.c-preloader svg {
+				display: block;
+				width: min(250px, 70vw);
+				height: 10vh;
+			}
+			html:not(.is-first-loading) .c-preloader {
+				opacity: 0;
+				pointer-events: none;
+			}
+			.c-preloader_outer {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 100;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.c-preloader_logo {
+				display: block;
+				opacity: 1;
+				animation: preloaderAppear 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+				animation-fill-mode: backwards;
+			}
+			@keyframes preloaderAppear {
+				0% {
+					opacity: 0;
+					transform: scale(0.9) translate3d(0, 0, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: scale(1) translate3d(0, 0, 0);
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="./src/main.css" />
 
-    <!-- Scripts -->
-    <script src="./src/scripts/theme-init.js" defer></script>
-    <script src="./src/main.js" type="module" defer></script>
-  </head>
-  <body class="">
-    <main>
-      <!-- #region = 0. HEADER -->
-      <div class="o-header">
-        <div id="header" class="o-header_topic">
-          <span class="c-icon_area">
-            <svg class="c-icon_btn" height="28" width="28">
-              <use href="" />
-            </svg>
-          </span>
-          <h2 class="f-preset_4"></h2>
-        </div>
+		<!-- Scripts -->
+		<script src="./src/scripts/theme-init.js" defer></script>
+		<script src="./src/main.js" type="module" defer></script>
+	</head>
+	<body class="">
+		<main>
+			<!-- #region = 0. HEADER -->
+			<div class="o-header">
+				<div id="header" class="o-header_topic">
+					<span class="c-icon_area">
+						<svg class="c-icon_btn" height="28" width="28">
+							<use href="" />
+						</svg>
+					</span>
+					<h2 class="f-preset_4"></h2>
+				</div>
 
-        <!-- Switcher -->
-        <div class="o-switcher" data-anim-switcher>
-          <label class="o-switcher_area" for="mode-switcher">
-            <span class="o-switcher_option">
-              <svg class="c-icon_switcher" height="16" width="16">
-                <use href="./src/assets/images/icons.svg#icon-sun" />
-              </svg>
-            </span>
-            <span class="c-switcher">
-              <input type="checkbox" id="mode-switcher" />
-              <label for="mode-switcher" tabindex="0">
-                <span class="c-handler"></span>
-              </label>
-            </span>
-            <span class="o-switcher_option">
-              <svg class="c-icon_switcher" height="16" width="16">
-                <use href="./src/assets/images/icons.svg#icon-moon" />
-              </svg>
-            </span>
-          </label>
-        </div>
-      </div>
-      <!-- #endregion = 0. HEADER -->
+				<!-- Switcher -->
+				<div class="o-switcher" data-anim-switcher>
+					<label class="o-switcher_area" for="mode-switcher">
+						<span class="o-switcher_option">
+							<svg class="c-icon_switcher" height="16" width="16">
+								<use href="./src/assets/images/icons.svg#icon-sun" />
+							</svg>
+						</span>
+						<span class="c-switcher">
+							<input type="checkbox" id="mode-switcher" />
+							<label for="mode-switcher" tabindex="0">
+								<span class="c-handler"></span>
+							</label>
+						</span>
+						<span class="o-switcher_option">
+							<svg class="c-icon_switcher" height="16" width="16">
+								<use href="./src/assets/images/icons.svg#icon-moon" />
+							</svg>
+						</span>
+					</label>
+				</div>
+			</div>
+			<!-- #endregion = 0. HEADER -->
 
-      <!-- #region = 1. START SCREEN -->
-      <article id="screen-start" class="">
-        <!-- Heading -->
-        <div class="o-heading">
-          <div class="u-width_max-30ch">
-            <h1 class="f-preset_2" data-anim-start-heading><span class="f-light">Welcome to the </span>Frontend Quiz!</h1>
-          </div>
-          <p class="f-preset_5 f-color_grey-light" data-anim-start-p>Pick a subject to get started.</p>
-        </div>
+			<!-- #region = 1. START SCREEN -->
+			<article id="screen-start" class="">
+				<!-- Heading -->
+				<div class="o-heading">
+					<div class="u-width_max-30ch">
+						<h1 class="f-preset_2" data-anim-start-heading><span class="f-light">Welcome to the </span>Frontend Quiz!</h1>
+					</div>
+					<p class="f-preset_5 f-color_grey-light" data-anim-start-p>Pick a subject to get started.</p>
+				</div>
 
-        <!-- Buttons -->
-        <ul class="o-list" id="btns-quiz">
-          <li>
-            <button id="quiz-html" class="c-btn_secondary f-preset_4" type="button">
-              <span class="c-icon_area u-color_orange-50">
-                <svg class="c-icon_btn" height="28" width="28">
-                  <use href="./src/assets/images/icons.svg#icon-html" />
-                </svg>
-              </span>
-              HTML
-              <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                <rect />
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button id="quiz-css" class="c-btn_secondary f-preset_4" type="button">
-              <span class="c-icon_area u-color_green-100">
-                <svg class="c-icon_btn" height="28" width="28">
-                  <use href="./src/assets/images/icons.svg#icon-css" />
-                </svg>
-              </span>
-              CSS
-              <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                <rect />
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button id="quiz-js" class="c-btn_secondary f-preset_4" type="button">
-              <span class="c-icon_area u-color_blue-50">
-                <svg class="c-icon_btn" height="28" width="28">
-                  <use href="./src/assets/images/icons.svg#icon-js" />
-                </svg>
-              </span>
-              JavaScript
-              <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                <rect />
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button id="quiz-access" class="c-btn_secondary f-preset_4" type="button">
-              <span class="c-icon_area u-color_purple-100">
-                <svg class="c-icon_btn" height="28" width="28">
-                  <use href="./src/assets/images/icons.svg#icon-accessibility" />
-                </svg>
-              </span>
-              Accessibility
-              <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                <rect />
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </article>
+				<!-- Buttons -->
+				<ul class="o-list" id="btns-quiz">
+					<li>
+						<button id="quiz-html" class="c-btn_secondary f-preset_4" type="button">
+							<span class="c-icon_area u-color_orange-50">
+								<svg class="c-icon_btn" height="28" width="28">
+									<use href="./src/assets/images/icons.svg#icon-html" />
+								</svg>
+							</span>
+							HTML
+							<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+								<rect />
+							</svg>
+						</button>
+					</li>
+					<li>
+						<button id="quiz-css" class="c-btn_secondary f-preset_4" type="button">
+							<span class="c-icon_area u-color_green-100">
+								<svg class="c-icon_btn" height="28" width="28">
+									<use href="./src/assets/images/icons.svg#icon-css" />
+								</svg>
+							</span>
+							CSS
+							<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+								<rect />
+							</svg>
+						</button>
+					</li>
+					<li>
+						<button id="quiz-js" class="c-btn_secondary f-preset_4" type="button">
+							<span class="c-icon_area u-color_blue-50">
+								<svg class="c-icon_btn" height="28" width="28">
+									<use href="./src/assets/images/icons.svg#icon-js" />
+								</svg>
+							</span>
+							JavaScript
+							<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+								<rect />
+							</svg>
+						</button>
+					</li>
+					<li>
+						<button id="quiz-access" class="c-btn_secondary f-preset_4" type="button">
+							<span class="c-icon_area u-color_purple-100">
+								<svg class="c-icon_btn" height="28" width="28">
+									<use href="./src/assets/images/icons.svg#icon-accessibility" />
+								</svg>
+							</span>
+							Accessibility
+							<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+								<rect />
+							</svg>
+						</button>
+					</li>
+				</ul>
+			</article>
 
-      <!-- #endregion = 1. START SCREEN -->
+			<!-- #endregion = 1. START SCREEN -->
 
-      <!-- #region = 2. QUIZ SCREEN -->
-      <article id="screen-quiz" class="is-removed">
-        <!-- Question -->
-        <div class="o-hero">
-          <div class="o-heading_text">
-            <h3 class="f-preset_5 f-color_grey-light" data-number>—</h3>
-            <h4 class="f-preset_3" data-question>—</h4>
-          </div>
-          <!-- / Progress bar -->
-          <div class="c-progress">
-            <div id="progress-bar" class="c-progress_line"></div>
-          </div>
-        </div>
+			<!-- #region = 2. QUIZ SCREEN -->
+			<article id="screen-quiz" class="is-removed">
+				<!-- Question -->
+				<div class="o-hero">
+					<div class="o-heading_text">
+						<h3 class="f-preset_5 f-color_grey-light" data-number>—</h3>
+						<h4 class="f-preset_3" data-question>—</h4>
+					</div>
+					<!-- / Progress bar -->
+					<div class="c-progress">
+						<div id="progress-bar" class="c-progress_line"></div>
+					</div>
+				</div>
 
-        <!-- Answers -->
-        <ul class="o-list" id="radios">
-          <li>
-            <span class="c-radio">
-              <input id="option-a" class="" type="radio" name="option-answer" value="" />
-              <label for="option-a" tabindex="0">
-                <span class="o-btn_content-left">
-                  <span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>A</span></span>
-                  <span class="f-preset_4" data-answer>—</span>
-                </span>
-                <span class="is-hidden" data-correct>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-correct" />
-                  </svg>
-                </span>
-                <span class="is-hidden" data-incorrect>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-incorrect" />
-                  </svg>
-                </span>
-                <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-              </label>
-            </span>
-          </li>
-          <li>
-            <span class="c-radio">
-              <input id="option-b" class="" type="radio" name="option-answer" value="" />
-              <label for="option-b" tabindex="0">
-                <span class="o-btn_content-left">
-                  <span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>B</span></span>
-                  <span class="f-preset_4" data-answer>—</span>
-                </span>
-                <span class="is-hidden" data-correct>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-correct" />
-                  </svg>
-                </span>
-                <span class="is-hidden" data-incorrect>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-incorrect" />
-                  </svg>
-                </span>
-                <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-              </label>
-            </span>
-          </li>
-          <li>
-            <span class="c-radio">
-              <input id="option-c" class="" type="radio" name="option-answer" value="" />
-              <label for="option-c" tabindex="0">
-                <span class="o-btn_content-left">
-                  <span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>C</span></span>
-                  <span class="f-preset_4" data-answer>—</span>
-                </span>
-                <span class="is-hidden" data-correct>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-correct" />
-                  </svg>
-                </span>
-                <span class="is-hidden" data-incorrect>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-incorrect" />
-                  </svg>
-                </span>
-                <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-              </label>
-            </span>
-          </li>
-          <li>
-            <span class="c-radio">
-              <input id="option-d" class="" type="radio" name="option-answer" value="" />
-              <label for="option-d" tabindex="0">
-                <span class="o-btn_content-left">
-                  <span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>D</span></span>
-                  <span class="f-preset_4" data-answer>—</span>
-                </span>
-                <span class="is-hidden" data-correct>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-correct" />
-                  </svg>
-                </span>
-                <span class="is-hidden" data-incorrect>
-                  <svg height="32" width="32">
-                    <use href="./src/assets/images/icons.svg#icon-incorrect" />
-                  </svg>
-                </span>
-                <svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-                <svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <rect />
-                </svg>
-              </label>
-            </span>
-          </li>
-          <li>
-            <button id="button-submit" class="c-btn_primary f-preset_4" type="button">
-              <span class="c-btn_primary-overlay"></span>
-              <span class="c-btn_primary-text">Submit Answer</span>
-            </button>
-            <div class="o-error_wrapper">
-              <div class="o-error_answer is-hidden" aria-live="polite" id="error-answer" data-incorrect>
-                <svg height="32" width="32">
-                  <use href="./src/assets/images/icons.svg#icon-incorrect" />
-                </svg>
-                <span class="f-preset_4 f-color_error">Please select an answer</span>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </article>
+				<!-- Answers -->
+				<ul class="o-list" id="radios">
+					<li>
+						<span class="c-radio">
+							<input id="option-a" class="" type="radio" name="option-answer" value="" />
+							<label for="option-a" tabindex="0">
+								<span class="o-btn_content-left">
+									<span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>A</span></span>
+									<span class="f-preset_4" data-answer>—</span>
+								</span>
+								<span class="is-hidden" data-correct>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-correct" />
+									</svg>
+								</span>
+								<span class="is-hidden" data-incorrect>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-incorrect" />
+									</svg>
+								</span>
+								<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+							</label>
+						</span>
+					</li>
+					<li>
+						<span class="c-radio">
+							<input id="option-b" class="" type="radio" name="option-answer" value="" />
+							<label for="option-b" tabindex="0">
+								<span class="o-btn_content-left">
+									<span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>B</span></span>
+									<span class="f-preset_4" data-answer>—</span>
+								</span>
+								<span class="is-hidden" data-correct>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-correct" />
+									</svg>
+								</span>
+								<span class="is-hidden" data-incorrect>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-incorrect" />
+									</svg>
+								</span>
+								<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+							</label>
+						</span>
+					</li>
+					<li>
+						<span class="c-radio">
+							<input id="option-c" class="" type="radio" name="option-answer" value="" />
+							<label for="option-c" tabindex="0">
+								<span class="o-btn_content-left">
+									<span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>C</span></span>
+									<span class="f-preset_4" data-answer>—</span>
+								</span>
+								<span class="is-hidden" data-correct>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-correct" />
+									</svg>
+								</span>
+								<span class="is-hidden" data-incorrect>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-incorrect" />
+									</svg>
+								</span>
+								<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+							</label>
+						</span>
+					</li>
+					<li>
+						<span class="c-radio">
+							<input id="option-d" class="" type="radio" name="option-answer" value="" />
+							<label for="option-d" tabindex="0">
+								<span class="o-btn_content-left">
+									<span class="c-icon_area || u-color_grey-light || f-preset_4 || f-color_grey-light_unchanged"><span>D</span></span>
+									<span class="f-preset_4" data-answer>—</span>
+								</span>
+								<span class="is-hidden" data-correct>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-correct" />
+									</svg>
+								</span>
+								<span class="is-hidden" data-incorrect>
+									<svg height="32" width="32">
+										<use href="./src/assets/images/icons.svg#icon-incorrect" />
+									</svg>
+								</span>
+								<svg class="c-button_border" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-correct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+								<svg class="c-radio_border-incorrect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+									<rect />
+								</svg>
+							</label>
+						</span>
+					</li>
+					<li>
+						<button id="button-submit" class="c-btn_primary f-preset_4" type="button">
+							<span class="c-btn_primary-overlay"></span>
+							<span class="c-btn_primary-text">Submit Answer</span>
+						</button>
+						<div class="o-error_wrapper">
+							<div class="o-error_answer is-hidden" aria-live="polite" id="error-answer" data-incorrect>
+								<svg height="32" width="32">
+									<use href="./src/assets/images/icons.svg#icon-incorrect" />
+								</svg>
+								<span class="f-preset_4 f-color_error">Please select an answer</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</article>
 
-      <!-- #endregion = 2. QUIZ SCREEN -->
+			<!-- #endregion = 2. QUIZ SCREEN -->
 
-      <!-- #region = 3. RESULT SCREEN -->
-      <article id="screen-result" class="is-removed">
-        <div class="u-width_max-30ch">
-          <h1 class="f-preset_2">
-            <span class="f-light">Quiz completed</span>
-            You scored…
-          </h1>
-        </div>
+			<!-- #region = 3. RESULT SCREEN -->
+			<article id="screen-result" class="is-removed">
+				<div class="u-width_max-30ch">
+					<h1 class="f-preset_2">
+						<span class="f-light">Quiz completed</span>
+						You scored…
+					</h1>
+				</div>
 
-        <div class="o-content_result">
-          <div class="c-result_card">
-            <div id="result-text" class="o-header_topic">
-              <span class="c-icon_area u-color_purple-100">
-                <svg class="c-icon_btn" height="28" width="28">
-                  <use href="./src/assets/images/icons.svg#icon-accessibility" data-result-icon />
-                </svg>
-              </span>
-              <h2 class="f-preset_4">Accessibility</h2>
-            </div>
-            <div class="o-result_text">
-              <h4 class="f-preset_1" data-score>-</h4>
-              <p class="f-preset_4 f-color_grey-light" data-q-amount>out of 10</p>
-            </div>
-          </div>
-          <button id="button-restart" class="c-btn_primary f-preset_4" type="button">
-            <span class="c-btn_primary-overlay"></span>
-            <span class="c-btn_primary-text">Play again</span>
-          </button>
-        </div>
-      </article>
-      <!-- #endregion = 3. RESULT SCREEN -->
-    </main>
-  </body>
+				<div class="o-content_result">
+					<div class="c-result_card">
+						<div id="result-text" class="o-header_topic">
+							<span class="c-icon_area u-color_purple-100">
+								<svg class="c-icon_btn" height="28" width="28">
+									<use href="./src/assets/images/icons.svg#icon-accessibility" data-result-icon />
+								</svg>
+							</span>
+							<h2 class="f-preset_4">Accessibility</h2>
+						</div>
+						<div class="o-result_text">
+							<h4 class="f-preset_1" data-score>-</h4>
+							<p class="f-preset_4 f-color_grey-light" data-q-amount>out of 10</p>
+						</div>
+					</div>
+					<button id="button-restart" class="c-btn_primary f-preset_4" type="button">
+						<span class="c-btn_primary-overlay"></span>
+						<span class="c-btn_primary-text">Play again</span>
+					</button>
+				</div>
+			</article>
+			<!-- #endregion = 3. RESULT SCREEN -->
+		</main>
+	</body>
 </html>
